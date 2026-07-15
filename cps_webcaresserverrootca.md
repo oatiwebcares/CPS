@@ -1,5 +1,5 @@
-# WEBCARES CERTIFICATION PRACTICE STATEMENT FOR OATI WEBCARES SERVER ROOT CA V2
-**MARCH 2026**
+# WEBCARES CERTIFICATION PRACTICE STATEMENT FOR OATI WEBCARES SERVER ROOT CA V2.1
+**JULY 2026**
 
 **PROPRIETARY AND CONFIDENTIAL**
 
@@ -13,6 +13,8 @@
 |1.0| 12/31/2025| Approved| OATI|
 |1.1| 03/03/2026| Updates throughout, including: <br/>Require DNSSEC for CAA and DCV Lookups for Server certificates (SC085, SC094, SC096) <br/>Reduced Validity and Data Reuse Periods for Server certificates (SC081)| OATI|
 |2.0| 03/17/2026| Approved| OATI|
+|2.1| 06/30/2026| Updates to 1.2, 1.5.2.1, 4.3.1.3, 4.9.2, 4.9.13, 4.9.14, 4.9.15, 4.9.16, and 6.1.7| OATI|
+|2.1| 07/13/2026| Approved| OATI|
 
 # 1. Introduction
 
@@ -60,6 +62,14 @@ OATI offerings through their browsers, phones, or any other form of access.
 
 This document is the combined OATI CA CP and CPS and can be located at
 https://www.oaticerts.com/repository/OATI-webCARES-Server-Root-CA-CPS.pdf.
+
+OATI assigns the following OIDs:
+
+|OID| Description |
+|---|---|
+|2.23.140.1.2.2 |Organization Validated (OV) Certificates Policy OID|
+|1.2.840.114278.11.1 |OATI Certificates Policy OID|
+|2.16.840.1.114505.1.12.2.2 |NAES Basic Assurance Certificate Policy OID|
 
 ## 1.3 PKI Participants
 
@@ -195,7 +205,7 @@ Email: Compliance@oati.net
 #### 1.5.2.1 OATI 24x7x365 Customer Support
 
 The OATI Help Desk provides full support 24x7x365. Customers are encouraged to contact the
-OATI Help Desk by telephone, email (webCARESSupport@oati.net), postal mail, and OATI
+OATI Help Desk by telephone, email (webCARESSupport@oati.net), the Contact Us form located in the OATI webCARES repository, postal mail, and OATI
 application messaging systems. Operational emergencies must be reported by telephone to
 763.201.2020. OATI webSupport utilizes Tickets to track customer inquiries, issues relating to
 OATI services, and the OATI infrastructure including hardware, networks, and communications.
@@ -1173,7 +1183,7 @@ certificate issuance.
 - Support “accounturi” and “validationmethods” parameters extensions to CAA Record per
 RFC 8657.
 - All relevant CAA record processing actions taken, if any, are audited.
-- Effective March 15, 2026, for TLS Server certificates DNSSEC validation is performed in accordance with CAB Baseline Requirements for TLS section 3.2.2.8.1.
+- Effective March 15, 2026, for TLS Server certificates, DNSSEC validation is performed in accordance with CAB Baseline Requirements for TLS section 3.2.2.8.1. DNSSEC validation back to the IANA DNSSEC root trust anchor MUST be performed on all DNS queries associated with the validation of domain authorization or control by the Primary Network Perspective and CAs MUST NOT use local policy to disable DNSSEC validation on any DNS query associated with the validation of domain authorization or control.
 
 ## 4.3 Certificate Issuance
 
@@ -1211,7 +1221,7 @@ https://cabforum.org/resources/tools/).
 
 #### 4.3.1.3 Linting of Issued Certificates
 
-OATI uses a Linting process to test each issued Certificate.
+OATI may uses a Linting process to test each issued Certificate.
 
 ### 4.3.2 Notifications to Subscriber by OATI of Issuance of Certificate
 
@@ -1419,6 +1429,8 @@ webCARES Digital Certificate will be placed within the CRL within 10 minutes of 
 the serial number will remain in the CRL until after the end of the OATI webCARES Digital
 Certificate’s validity period.
 
+OATI does not permit certificate suspension. 
+
 ### 4.9.1 Circumstances for Revocation
 
 An SO is primarily responsible to revoke the Subscriber’s Digital Certificates with respect to any
@@ -1501,10 +1513,10 @@ purposes.
 An End Entity may request revocation of his/her/its OATI webCARES Digital Certificate at any
 time for any reason. The request may be made to the End Entity’s SO or to the OATI Help Desk.
 SOs may request revocation of a certificate within their Organization as well. This can be done
-via the OATI webCARES GUI or via email submittal of a Certificate Problem Report to OATI Help
-Desk. If the revocation request is to the OATI Help Desk, the request must be submitted to
+via the OATI webCARES GUI or via email submittal of a revocation request to OATI Help
+Desk. If the revocation request is sent to the OATI Help Desk, the request must be submitted to
 OATI via the webCARESSupport@oati.net email address. Within 24 hours after receiving the
-Certificate Problem Report, the OATI Help Desk will begin an investigation request for
+revocation request, the OATI Help Desk will begin an investigation request for
 revocation, and decide whether revocation or other appropriate action is warranted based on
 at least the following criteria:
 
@@ -1520,7 +1532,10 @@ at least the following criteria:
 The OATI Help Desk will provide a preliminary report on its findings to both the Subscriber and
 the entity who filed the report within 24 hours after receipt of the request.
 
-#### 4.9.2.1 Notifications
+#### 4.9.2.1 Certificate Problem Reports
+A Certificate Problem Report can only be reported to OATI through the OATI webCARES Contact Us form located in the repository. Within 24 hours after receiving the Certificate Problem Report, OATI will begin an investigation. If insufficient information has been provided, OATI may request for additional information. The revocation timeline as stated in Section 4.9.1 will begin once the Certificate Problem Report has been confirmed. OATI will provide a preliminary report on its findings to the entity who filed the report within 24 hours after the Certificate Problem Report has been confirmed.
+
+#### 4.9.2.2 Notifications
 
 OATI will notify Subscribers in the event any of the following incidents occur
 
@@ -1602,25 +1617,19 @@ Section 4.9.1. Methods that parties may use to demonstrate a private key comprom
 
 ### 4.9.13 Circumstances for Suspension
 
-OATI webCARES Digital Certificates may be suspended for reasons including, but not limited to,
-non-payment, activities in violation with this CPS, contract expiration, activities in violation of
-the law, and/or activities in violation of standard industry practices.
-
-The OATI repository does not include entries that indicate that a Certificate has been
-suspended.
+OATI webCARES does not permit certificate suspension.
 
 ### 4.9.14 Who Can Request Suspension
 
-SOs or the Subscriber of the certificate may request a certificate suspension.
+Not applicable - OATI webCARES does not permit certificate suspension.
 
 ### 4.9.15 Procedure for Suspension Request
 
-Certificates may be requested for suspension via the OATI webCARES GUI, or phone call or email
-to OATI Help Desk with appropriate verification.
+Not applicable - OATI webCARES does not permit certificate suspension.
 
 ### 4.9.16 Limits on Suspension Period
 
-Certificates may be suspended until the certificate expires.
+Not applicable - OATI webCARES does not permit certificate suspension.
 
 ## 4.10 Certificate Status Services
 
@@ -2029,8 +2038,10 @@ event.
     - Introduction of new Certificate Profiles and retirement of existing Certificate Profiles.
 2. Subscriber Certificate lifecycle management events, including:
     - Certificate requests, renewal and re-key requests, and revocation;
-    - All verification activities stipulated in the CA/B Forum Baseline Requirements and this
-       CPS;
+    - All verification activities stipulated in the CA/B Forum Baseline Requirements and this CPS. Records included at a minimum;
+        - the information being validated (e.g., the applied-for FQDN or the organization name); 
+        - the ADN used (if applicable and different from the applied-for FQDN); and 
+        - the validation method used (e.g., the BRs section number or the registered label of an ACME validation method); ;
     - Approval and rejection of certificate requests;
     - Issuance of Certificates;
     - Generation of CRLs; and
@@ -2357,8 +2368,7 @@ BRAF process.
 
 ### 6.1.7 Key Usage Purposes (as per X.509 v3 Key Usage Field)
 
-OATI webCARES CA certificates and their associated keys are limited to the following uses: Non-
-Repudiation, Certificate Signing, Off-line CRL Signing, and CRL Signing.
+OATI webCARES CA certificates and their associated keys are limited to the following uses: Certificate Signing, Off-line CRL Signing, and CRL Signing.
 
 OATI webCARES End Entity Certificates and their associated keys are limited to the following
 uses: Server Authentication.
@@ -3079,10 +3089,6 @@ crlEntry Extensions Component:
 		- privilegeWithdrawn (RFC 5280 CRLReason #9): Indicates that there has been a subscriber-side infraction that has not resulted in keyCompromise, such as the Certificate Subscriber provided misleading information in their Certificate Request or has not upheld their material obligations under the Subscriber Agreement or Terms of Use.
 
 	- Any other value: Not present.
-
-### 7.2.3 Version Number(s)
-
-Not Applicable.
 
 ## 7.3 OCSP Profile
 
