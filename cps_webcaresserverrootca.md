@@ -1,5 +1,5 @@
-# WEBCARES CERTIFICATION PRACTICE STATEMENT FOR OATI WEBCARES SERVER ROOT CA V2.1
-**JULY 2026**
+# WEBCARES CERTIFICATION PRACTICE STATEMENT FOR OATI WEBCARES SERVER ROOT CA V2.2
+**SEPTEMBER 2026**
 
 **PROPRIETARY AND CONFIDENTIAL**
 
@@ -15,6 +15,8 @@
 |2.0| 03/17/2026| Approved| OATI|
 |2.1| 06/30/2026| Updates to 1.2, 1.5.2.1, 4.3.1.3, 4.9.2, 4.9.13, 4.9.14, 4.9.15, 4.9.16, and 6.1.7| OATI|
 |2.1| 07/13/2026| Approved| OATI|
+|2.2| 08/07/2026| SIVP Removals| OATI|
+|2.2| 09/11/2026| Added Chrome and CCADB Policy adherence. Adjusted validity period and data reuse timeframes| OATI|
 
 # 1. Introduction
 
@@ -39,6 +41,16 @@ webCARES service about their rights and responsibilities; 3) outline the rights 
 responsibilities of the OATI CA, RA, and LRA; and 4) instill public confidence in the OATI CA
 through the disclosure of industry accepted policies, practices, and procedures that ensure the
 creation of a secure and trusted PKI.
+
+This CP/CPS conforms to and incorporates the requirements of the latest applicable versions of the CA/Browser Forum Baseline Requirements for the Issuance and Management of Publicly-Trusted TLS Certificates and the CA/Browser Forum Network and Certificate System Security Requirements, as applicable to the certificate types and services provided by OATI webCARES.
+In addition, OATI webCARES attests that it adheres to the latest applicable versions of the following policies and program requirements. 
+- CCADB Policy – https://www.ccadb.org/policy
+- Chrome Root Policy – https://googlechrome.github.io/chromerootprogram/ 
+
+
+OATI webCARES monitors revisions to these policies and requirements and implements applicable changes within the applicable effective dates and timelines.
+
+This CP/CPS applies exclusively to the OATI webCARES Server Root CA and the subordinate CA hierarchy issued beneath that Root CA, including the OATI webCARES Server Issuing CA 2026. This hierarchy is dedicated exclusively to the issuance of publicly trusted TLS server authentication certificates. This CP/CPS does not govern any other OATI webCARES root, subordinate CA, certificate hierarchy, or certificate type unless expressly identified herein.
 
 OATI webCARES PKI is implemented with the following hierarchical structure:
 
@@ -96,9 +108,7 @@ certificates are issued exclusively by subordinate CAs.
 
 ### 1.3.2 Registration Authorities
 
-The OATI RA may delegate RA duties to LRAs. The RA and/or LRA, where applicable, is
-responsible for performing the OATI webCARES SIVP or other acceptable methods of identity
-verification in conformance with applicable standards. This procedure is documented and 
+The OATI RA may delegate RA duties to LRAs. This procedure is documented and 
 ensures that OATI issues OATI webCARES Digital Certificates to entities that are verified using
 commercially reasonable industry practices and procedures.
 
@@ -1015,34 +1025,11 @@ Please see section 3.2.2.4.7.1.
 
 ### 3.2.3 Authentication of Individual Identity
 
-To conform to SIVP, identity verification shall be performed prior to the issuance of all OATI
-webCARES Digital Certificates. The Applicant’s name, address, and the authenticity of the
-certificate request shall be verified.
+Not Applicable.
 
-To meet the requirements, SOs can verify the identity of Subscribers in one of three ways.
+OATI webCARES CA does not issue individual validated TLS Server certificates to natural persons. 
 
-1. The SO can validate an Applicant’s identity in person by having the Applicant present a valid
-    and current government issued picture ID. The SO shall inspect the ID for any indication of
-    alteration or falsification.
-2. The SO can validate an Applicant’s identity remotely through the Applicant presenting a
-    valid and current government issued picture ID and a financial account number that can be
-    confirmed.
-3. SOs issuing OATI webCARES Digital Certificates to internal employees may perform identity
-    verification through their company’s Human Resources background screening performed
-    upon employment, a corporate issued picture ID and/or a secure online process where
-    notification is sent via the distribution channels normally used for sensitive, personal
-    communications. The corporate issued picture ID or secure online process must originate
-    with a government issued photo ID.
-
-The SO shall verify the certificate request with the Subscriber using a Reliable Method of
-Communication. The SO shall store and maintain records of the method(s) and documentation
-used to authenticate the identity of the Subscriber.
-
-All Server Certificate requests are verified against Google’s Safe Browsing Lookup API to screen
-for High Risk Requests including subsequent suspicious requests. Any requests identified by
-Google’s Safe Browsing Lookup API as potentially containing malicious code or phishing attempts
-will be considered by OATI to be a High Risk Request, and as such, will be rejected and logged
-in the database.
+OATI webCARES CA issues Organization Validated (OV) Server Certificates to legal entities/organizations in accordance with the applicable requirements of Section 3.2.2. 
 
 ### 3.2.4 Non-Verified Subscriber Information
 
@@ -1137,11 +1124,13 @@ OATI webCARES may use the documents and data provided in Section 3.2 to verify O
 
 1. Subject Identity Information Validation
 
-For Certificates issued on or after March 15, 2026, the reuse period is 398 days;
+   - The reuse period is not greater than 398 days;
 
 2. Domain Control Validation
 
-For Certificates issued on or after March 15, 2026, the reuse period is 199 days.
+   - The reuse period is not greater than 200 days.
+   - For Server Certificates issued on or after March 15, 2027, the reuse period will not be greater than 100 days.
+   - For Server Certificates issued on or after March 15, 2029, the reuse period will not be greater than 10 days.
 
 ### 4.2.2 Approval or Rejection of Certificate Applications
 
@@ -2500,7 +2489,12 @@ No stipulation.
 
 ### 6.3.2 Certificate Operational Periods and Key Pair Usage Periods
 
-OATI webCARES Server Certificates have a certificate lifetime of 396 days. Effective March 15, 2026, OATI webCARES Server Certificates have a certificate lifetime of 199 days.
+The Validity Period of an OATI webCARES Server(end-entity) Authentication Certificate SHALL NOT exceed the maximum period permitted by the applicable CA/Browser Forum Baseline Requirements in effect at the time of certificate issuance.
+For purposes of calculating the Certificate validity period, OATI measures one day as exactly 86,400 seconds. Any period of time greater than 86,400 seconds, including fractional seconds and/or leap seconds, is considered an additional day.
+OATI applies the following maximum validity periods for publicly trusted Server Certificates:
+- For Certificates issued on or after March 15, 2026 and before March 15, 2027, the Validity Period SHALL NOT exceed 200 days.
+- For Certificates issued on or after March 15, 2027 and before March 15, 2029, the Validity Period SHALL NOT exceed 100 days.
+- For Certificates issued on or after March 15, 2029, the Validity Period SHALL NOT exceed 47 days.
 
 ## 6.4 Activation Data
 
@@ -2755,15 +2749,15 @@ least 64 bits of output from a CSPRNG.
 
 	- authorityKeyIdentifier: Present, NOT marked as critical, and contains at a minimum a keyIdentifier field.
 
-	- basicConstraints: Present and marked as critical with the cA field set to True. There are no pathLenConstraints.
+	- basicConstraints: Present and marked as critical with the cA field set to True. pathLenConstraint set to 0.
 
 	- certificatePolicies: Present and NOT marked critical.
 
 		-  certificatePolicies:policyIdentifier: Present.
 
-		-  certificatePolicies:policyQualifiers:policyQualifierId: Present.
+		-  certificatePolicies:policyQualifiers:policyQualifierId: Not Present.
 
-		-  certificatePolicies:policyQualifiers:qualifier:cPSuri: Present.
+		-  certificatePolicies:policyQualifiers:qualifier:cPSuri: Not Present.
 
 	- cRLDistributionPoints: Present, NOT marked as critical, and at minimum contains the HTTP URL of OATI webCARES’s CRL service.
 
@@ -2789,7 +2783,7 @@ least 64 bits of output from a CSPRNG.
 
 - issuer: byte-for-byte identical to the subject field. See Section 7.1.4.1.
 
-- validity: 396 days. Als	- see Section 6.3.2.
+- validity: See Section 6.3.2.
 
 - subject: Present, NOT marked as critical, and contains at minimum the following:
 
