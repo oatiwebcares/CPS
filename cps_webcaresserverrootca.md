@@ -17,20 +17,13 @@
 |2.1| 07/13/2026| Approved| OATI|
 |2.2| 08/07/2026| SIVP Removals| OATI|
 |2.2| 09/11/2026| Added Chrome and CCADB Policy adherence. Adjusted validity period and data reuse timeframes| OATI|
+|3.0| 11/10/2026| Updates throughout| OATI|
 
 # 1. Introduction
 
-This document is the OATI webCARES (Certificate Administration, Renewal, and Enrollment
-System) combined CP/CPS. This CPS outlines the legal, commercial, and technical principles
-and practices related to OATI webCARES Certificate services. This CP/CPS applies to all
-persons, entities, and organizations participating in or using OATI webCARES services.
+This document is the OATI webCARES (Certificate Administration, Renewal, and Enrollment System) combined Certificate Policy (CP)/Certificate Practice Statement (CPS), also referred to as "CPS".  This CPS outlines the legal, commercial, and technical principles and practices related to OATI webCARES Certificate services.  This CPS applies to all persons, entities, and organizations participating in or using OATI webCARES services detailed within the hierarchy noted below in Section 1.1.
 
-This CP/CPS describes the practices that OATI webCARES follows in issuing Digital Certificates
-in accordance with requirements found within the CPA Canada WebTrust Program for
-Certification Authorities (WebTrust Principles & Criteria for Certification Authorities and the
-WebTrust Principles & Criteria for Certification Authorities - TLS Baseline with Network
-Security), and in accordance with other applicable industry standards such as NAESB WEQ- 012
-and the CA/B Forum.
+This CPS describes the practices that OATI webCARES follows in issuing Digital Certificates in accordance with requirements found within the CPA Canada WebTrust Program for Certification Authorities (WebTrust Principles & Criteria for Certification Authorities and the WebTrust Principles & Criteria for Certification Authorities - TLS Baseline with Network Security), and in accordance with other applicable industry standards such as NAESB WEQ-012 and the CA/B Forum.
 
 ## 1.1 OATI webCARES Overview
 
@@ -81,20 +74,13 @@ OATI assigns the following OIDs:
 |---|---|
 |2.23.140.1.2.2 |Organization Validated (OV) Certificates Policy OID|
 |1.2.840.114278.11.1 |OATI Certificates Policy OID|
-|2.16.840.1.114505.1.12.2.2 |NAES Basic Assurance Certificate Policy OID|
+|2.16.840.1.114505.1.12.2.2 |NAESB Basic Assurance Certificate Policy OID|
 
 ## 1.3 PKI Participants
 
-This CP/CPS describes the practices that OATI webCARES follows in issuing Digital Certificates
-in accordance with requirements found within the CPA Canada WebTrust Program for
-Certification Authorities (WebTrust Principles & Criteria for Certification Authorities and the
-WebTrust Principles & Criteria for Certification Authorities - TLS Baseline with Network
-Security), and in accordance with other applicable industry standards such as NAESB WEQ- 012
-and the CA/B Forum.
-
 ### 1.3.1 Certification Authorities
 
-OATI webCARES acts as a CA providing certificate services within the OATI webCARES PKI. OATI
+OATI webCARES acts as a Certificate Authority (CA) providing certificate services within the OATI webCARES PKI. OATI
 webCARES CA will:
 
 - Issue and publish OATI webCARES Digital Certificates in accordance with this CPS.
@@ -108,7 +94,7 @@ certificates are issued exclusively by subordinate CAs.
 
 ### 1.3.2 Registration Authorities
 
-The OATI RA may delegate RA duties to LRAs. This procedure is documented and 
+The OATI RA may delegate RA duties to LRAs/ERAs. This procedure is documented and 
 ensures that OATI issues OATI webCARES Digital Certificates to entities that are verified using
 commercially reasonable industry practices and procedures.
 
@@ -136,17 +122,9 @@ following sections describe the types of user roles available within OATI webCAR
 
 #### 1.3.4.1 User Roles
 
-**1.3.4.1.1 Security Officer/Local Registration Authority**
+**1.3.4.1.1 Security Officer/Enterprise Registration Authority/Local Registration Authority**
 
-The role of SO, otherwise known as an LRA, is mandatory for every organization or entity
-subscribing to the OATI webCARES system. An SO will be responsible for managing the Digital
-Certificates within his or her Organization. An SO will be responsible for using the OATI
-webCARES system to perform the SO’s duties and responsibilities described in this CPS. An SO
-is delegated the right to serve as an LRA. The SO’s duties and contractual obligations include
-issuing, revoking, renewing, and tracking OATI webCARES Digital Certificates for his or her
-organization, and revoking OATI webCARES Digital Certificates. An SO will be provided personal
-access to the OATI webCARES system to perform his or her role. All SOs must follow CA/B Forum
-BRs or risk revocation of their OATI webCARES Digital Certificate.
+The role of SO, otherwise known as an ERA/LRA, is mandatory for every organization or entity subscribing to the OATI webCARES system.  An SO will be responsible for managing the Digital Certificates within his or her Organization.  An SO will be responsible for using the OATI webCARES system to perform the SO’s duties and responsibilities described in this CPS.  An SO is delegated the right to serve as an ERA/LRA.  The SO’s duties and contractual obligations include issuing, revoking, renewing, and tracking OATI webCARES Digital Certificates for his or her organization, and revoking OATI webCARES Digital Certificates.  An SO will be provided personal access to the OATI webCARES system to perform his or her role. All SOs must follow CA/B Forum BRs or risk revocation of their OATI webCARES Digital Certificate.
 
 **1.3.4.1.2 Audit Officer**
 
@@ -174,16 +152,12 @@ conditions, and restrictions found in this CPS and applicable laws.
 OATI Root Key Pairs are used for self-signed certificates to represent the Root CA itself and
 signing certificates for Subordinate CAs.
 
-OATI non-Root Key Pairs are distributed for the purposes of issuing of Digital Certificates and
-CRLs. A periodic review of Key Pairs can confirm that each Key Pair has only been used for its
-intended purpose(s).
+OATI non-Root Key Pairs are distributed for the purposes of issuing of Digital Certificates and CRLs.  A review of Key Pairs can confirm that each Key Pair has only been used for its intended purpose(s).
 
-The OATI webCARES Server Root CA is operated as a publicly-trusted Certification Authority
-intended for general Internet use and issuance of publicly-trusted TLS server certificates in
-accordance with the CA/Browser Forum Baseline Requirements.
+The OATI webCARES Server Root CA is operated as a publicly-trusted Certification Authority intended for general Internet use and issuance of publicly-trusted TLS server certificates in accordance with the CA/Browser Forum Baseline Requirements as well as NAESB WEQ-012, WEQ-022, and WEQ-024 Business Practice Standards (BPS).
 
-OATI shall not issue certificates for client authentication, code signing , document signing or
-any other certificates except TLS server certificate under OATI webCARES Server Root CA.
+OATI shall not issue certificates for client authentication, code signing , document signing or any other certificates except TLS server certificate under the OATI webCARES Server Root CA. 
+
 
 ### 1.4.2 Prohibited Certificate Uses
 
@@ -193,11 +167,8 @@ OATI webCARES Digital Certificates are not intended, and shall not be used for a
 
 ### 1.5.1 Organization Administering the Document
 
-The maintenance of the OATI CPS will be managed by the OATI Compliance Department and
-designees. The CPS is always publically available on the OATI webCARES Repository and will be
-reviewed at least once every 365 days and updated as necessary to reflect changes to applicable
-industry standards including, but not limited to, NAESB WEQ-012, WebTrust for CAs, and CA/B
-Forum BRs.
+The maintenance of the OATI CPS will be managed by the OATI Compliance Department and designees.  The CPS is always publically available on the OATI webCARES Repository and will be reviewed at least once every 365 days and updated as necessary to reflect changes to applicable industry standards including, but not limited to, NAESB WEQ-012, WEQ-022, and WEQ-024 BPS (hereafter referred to as “NAESB BPS”); WebTrust for CAs; and CA/B Forum BRs.
+
 
 ### 1.5.2 Contact Details
 
@@ -214,13 +185,7 @@ Email: Compliance@oati.net
 ```
 #### 1.5.2.1 OATI 24x7x365 Customer Support
 
-The OATI Help Desk provides full support 24x7x365. Customers are encouraged to contact the
-OATI Help Desk by telephone, email (webCARESSupport@oati.net), the Contact Us form located in the OATI webCARES repository, postal mail, and OATI
-application messaging systems. Operational emergencies must be reported by telephone to
-763.201.2020. OATI webSupport utilizes Tickets to track customer inquiries, issues relating to
-OATI services, and the OATI infrastructure including hardware, networks, and communications.
-Tickets can be classified as Low, Medium, High, or Critical and each status has its own process
-for timely resolution. Critical Tickets are addressed within 30 minutes on a 24x7x365 basis.
+The OATI Help Desk provides full support 24x7x365. Customers are encouraged to contact the OATI Help Desk by telephone, email (webCARESSupport@oati.net), the Contact Us form located in the OATI webCARES repository, postal mail, and OATI application messaging systems.  Operational emergencies must be reported by telephone to 763.201.2020. OATI Help Desk utilizes Tickets in the OATI webSupport application to track customer inquiries, issues relating to OATI services, and the OATI infrastructure including hardware, networks, and communications.  Tickets can be classified as Low, Medium, High, or Critical and each status has its own process for timely resolution.  Critical Tickets are addressed within 30 minutes on a 24x7x365 basis.
 
 ### 1.5.3 Person Determining CPS Suitability for the Policy
 
@@ -229,7 +194,9 @@ on the results and recommendations provided by a Qualified Auditor.
 
 ### 1.5.4 CPS Approval Procedures
 
-This document was approved for publication following OATI standard processes.
+This document was approved for publication following OATI standard review and approval processes.
+OATI will submit updated CP/CPS documents to the CCADB within seven (7) days of the document’s effective date.
+
 
 ## 1.6 Definitions and Acronyms
 
@@ -267,6 +234,7 @@ This document was approved for publication following OATI standard processes.
 |HIDS  | Host-based Intrusion Detection System|
 |HSM  | Hardware Security Module|
 |IA  | (Certificate) Issuing Authority|
+|IANA  | Internet Assigned Numbers Authority|
 |ICANN  | Internet Corporation for Assigned Names and Numbers|
 |IEC  | International Electrotechnical Commission|
 |ISO  | International Organization for Standardization|
@@ -331,12 +299,11 @@ upon for such information.
 **Audit Officer:** A person designated within an organization to oversee and audit the actions of
 the SO as they pertain to issuing and managing OATI webCARES Digital Certificates.
 
-**Authorization Domain Name:** The FQDN used to obtain authorization for a given FQDN to be
-included in a Certificate. OATI may use the FQDN returned from a DNS CNAME lookup as the
-FQDN for the purposes of domain validation. OATI may prune zero or more Domain Labels of
-the FQDN from left to right until encountering a Base Domain Name and may use any one of the
-values that were yielded by pruning (including the Base Domain Name itself) for the purpose of
-domain validation.
+**Audit Period:** In a period-of-time audit, the period between the first day (start) and the last day of operations (end) covered by the auditors in their engagement.
+
+**Audit Report:** A report from a Qualified Auditor stating the Qualified Auditor’s opinion on whether an entity’s processes and controls comply with the mandatory provisions of these Requirements.
+
+**Authorization Domain Name:** The FQDN used to perform validation of domain authorization or control for a given FQDN or Wildcard Domain Name. 
 
 **Authorized Certificate Authority:** A CA that meets NAESB’s Business Practice Standards
 related to PKI (WEQ-012), meets the Accreditation Specification requirements, and has been
@@ -344,11 +311,7 @@ credentialed by NAESB as an ACA. OATI webCARES is an ACA.
 
 **Authorized Port:** One of the following ports: 80 (http), 443 (https), 25 (smtp), 22 (ssh).
 
-**Base Domain Name:** The portion of an applied-for FQDN that is the first Domain Name node
-left of a registry-controlled or public suffix plus the registry-controlled for public suffix (e.g.,
-“example.co.uk” or “example.com”). For FQDNs where the right-most Domain Name node is a
-gTLD having ICANN Specification 13 in its registry agreement, the gTLD itself may be used as
-the Base Domain Name.
+**Base Domain Name:** The portion of a given FQDN that is the first Domain Name node left of a registry-controlled or public suffix plus the registry-controlled for public suffix (e.g., "example.co.uk" or "example.com"). For FQDNs where the right-most Domain Name node is a gTLD having ICANN Specification 13 in its registry agreement, the gTLD itself may be used as the Base Domain Name.
 
 **Business Representative:** An Agent of an Organization who applies for access to the OATI
 webCARES system for the purpose of issuing and managing OATI webCARES Digital Certificates
@@ -363,6 +326,8 @@ distribution, renewal, rekey, and revocation of Certificates.
 **Certificate Authority Operations:** Management of the Certificate lifecycle, which includes
 generation and issuance, distribution, renewal and reissuance, and revocation of Certificates.
 
+**Certificate Beneficiary:**  Any subscriber, relying party, or application software supplier that trusts, uses, and benefits from the security provided by a webCARES Server (TLS) certificate.
+
 **Certificate Data:** Certificate requests and data related thereto (whether obtained from the
 Applicant or otherwise) in OATI’s possession or control or to which OATI has access.
 
@@ -372,6 +337,8 @@ maintains a Repository, and revokes Certificates.
 
 **Certificate Manufacturing Authority (Issuing Authority):** An entity responsible for Signing and
 Issuing OATI webCARES Digital Certificates.
+
+**Certificate Policy:** A set of rules that indicates the applicability of a named Certificate to a particular community and/or PKI implementation with common security requirements.
 
 **Certificate Problem Report:** Complaint of suspected Key Compromise, Certificate misuse, or
 other types of fraud, compromise, misuse, or inappropriate conduct related to Certificates.
@@ -452,7 +419,9 @@ in the DN assigned to the Digital Certificate. End Entities include Relying Part
 Subscribers.
 
 **Enterprise RA:** An employee or Agent of an organization unaffiliated with OATI who authorizes
-issuance of Certificates to that organization. See also LRA and SO.
+issuance of Certificates to that organization. See also SO and LRA.
+
+**Expiry Date:**  The "Not After" date in a Certificate that defines the end of a Certificate's validity period.
 
 **Fully Qualified Domain Name:** A Domain Name that includes the Domain Labels of all superior
 nodes in the Internet Domain Name System.
@@ -463,11 +432,7 @@ same result every time the same data set is used as input; it is computationally
 the data set to be derived from the Hash Function output; and it is extremely improbable that
 two distinct data sets would produce the same Hash result.
 
-**High Impact Bulk Electric System Cyber Systems:** Cyber system(s) essential to the operation
-of OATI Production Systems and the grouping of the BES Cyber Assets listed in the IT Device
-Management Component of webSupport. Please see NERC CIP-002-5.1 standard for the detailed
-description of High Impact BES Cyber Systems. OATI lists all of their BES Cyber Assets as High
-Impact.
+**High Impact Bulk Electric System Cyber Systems:** Cyber system(s) essential to the operation of OATI Production Systems and the grouping of the BES Cyber Assets listed in the IT Device Management Component of OATI webSupport. Please see NERC CIP-002-5.1 standard for the detailed description of High Impact BES Cyber Systems. OATI lists all of their BES Cyber Assets as High Impact.
 
 **High Risk Certificate Request:** A Request that OATI flags for additional scrutiny by reference
 to internal criteria and databases maintained by OATI, which may include names at higher risk
@@ -479,6 +444,8 @@ Safe Browsing list, or names that OATI identifies using its own risk-mitigation 
 Alternative Name field of a Certificate that cannot be verified as globally unique within the
 public DNS at the time of certificate issuance because it does not end with a Top Level Domain
 registered in IANA’s Root Zone Database.
+
+**Issuing CA:** In relation to a particular Certificate, the CA that issued the Certificate. This could be either a Root CA or a Subordinate CA.
 
 **Key Compromise:** A Private Key is said to be compromised if its value has been disclosed to
 an unauthorized person or an unauthorized person has had access to it.
@@ -498,12 +465,12 @@ entity or other entity with legal standing in a country’s legal system.
 such as a tbsCertificate (as described in RFC 5280, Section 4.1.1.1) is checked for conformance
 with the profiles and requirements defined in this CPS.
 
+**Local Registration Authority:** A delegation of the RA functions by OATI to external RAs that
+may or may not be part of the same legal entity as OATI. See also SO or Enterprise RA.
+
 **Multi-Perspective Issuance Corroboration:** A process by which the determinations made during
 domain validation and CAA checking by the Primary Network Perspective are corroborated by
 other Network Perspectives before Certificate issuance.
-
-**Local Registration Authority:** A delegation of the RA functions by OATI to external RAs that
-may or may not be part of the same legal entity as OATI. See also SO or Enterprise RA.
 
 **Naming Authority:** An entity responsible for assigning and managing DNs within a PKI. The NA
 is also responsible to ensure that all DNs assigned within the PKI are unique.
@@ -518,9 +485,13 @@ handed off to the network infrastructure providing Internet connectivity to that
 **Non-Reserved LDH Label:** From RFC 5890 (http://tools.ietf.org/html/rfc5890): “The set of
 valid LDH labels that do not have ‘–-’ in the third and fourth positions.”
 
+**OATI webCARES Digital Certificate:** An electronic record produced from the OATI webCARES system that lists a Public Key and confirms that the prospective signer identified in the electronic record holds the corresponding Private Key.
+
 **OCSP Responder:** An online server operated under the authority of OATI and connected to its
 Repository for processing Certificate status requests. See also, Online Certificate Status
 Protocol.
+
+**Onion Domain Name:** A Fully Qualified Domain Name ending with the RFC 7686 “.onion” Special-Use Domain Name. OATI does not issue certificates with Onion Domain Names.
 
 **Online Certificate Status Protocol:** An online Certificate-checking protocol that enables
 relying-party application software to determine the status of an identified Certificate. See also
@@ -528,6 +499,8 @@ OCSP Responder.
 
 **P-Label:** A XN-Label that contains valid output of the Punycode algorithm (as defined in RFC
 3492, Section 6.3) from the fifth and subsequent positions.
+
+**Precertificate:**  A signed data structure that can be submitted to a Certificate Transparency log, as defined by RFC 6962 and containing the critical poison extension (OID: 1.3.6.1.4.1.11129.2.4.3).
 
 **Primary Network Perspective:** The Network Perspective used by the CA to make the
 determination of 1) the CA’s authority to issue a Certificate for the requested domain(s) or IP
@@ -575,7 +548,7 @@ Applicant obtaining a Certificate.
 delivery address, telephone number, or email address, that was verified using a source other
 than the Applicant Representative.
 
-**Relying Parties:** An organization, person, or entity that relies on or uses an OATI webCARES
+**Relying Party:** An organization, person, or entity that relies on or uses an OATI webCARES
 Digital Certificate and/or any other information in the OATI webCARES Repository to verify the
 OATI webCARES CA Public Keys when verifying the identity of a Subscriber.
 
@@ -595,9 +568,6 @@ will NOT re-use it for a subsequent validation. The binding shall use a Digital 
 or cryptographic hash algorithm at least as strong as that to be used in signing the certificate
 request.
 
-**Required Website Content:** Either a Random Value or a Request Token, together with
-additional information that uniquely identifies the Subscriber, as specified by OATI.
-
 **Root CA:** The top level Certification Authority whose Root Certificate is distributed by
 Application Software Suppliers and that issues Subordinate CA Certificates.
 
@@ -608,15 +578,12 @@ facilitate verification of Certificates issued to its Subordinate CAs.
 Digital Certificates within an OU or an Unaffiliated Individual with access to the OATI webCARES
 solution. Each individual designated as an SO must have his/her identity verified using the OATI
 SIVP before he/she will be granted access the OATI webCARES system or receive an OATI
-webCARES Digital Certificate. See also LRA and Enterprise RA.
+webCARES Digital Certificate. See also Enterprise RA and Local RA.
 
 **Shared Network:** A local network over which information and/or devices can be remotely
 accessed.
 
-**Short-lived Subscriber Certificate:** For Certificates issued on or after March 15, 2024 and prior
-to March 15, 2026, a Subscriber Certificate with a Validity Period less than or equal to 10 days
-(864,000 seconds). For Certificates issued on or after March 15, 2026 , a Subscriber Certificate
-with a Validity Period less than or equal to 7 days (604,800 seconds).
+**Short-lived Subscriber Certificate:** A Subscriber Certificate with a Validity Period less than or equal to 7 days (604,800 seconds).
 
 **Subject:** The natural person, device, system, unit, or Legal Entity identified in a Certificate as
 the Subject. The Subject is either the Subscriber or a device under the control and operation
@@ -625,6 +592,8 @@ of the Subscriber.
 **Subject Identity Information:** Information that identifies the Certificate Subject. Subject
 Identity Information does not include a Domain Name or an IP Address listed in the
 subjectAltName extension or the Subject commonName field.
+
+**Top-Level Domain:** From RFC 8499 (https://tools.ietf.org/html/rfc8499): "A Top-Level Domain is a zone that is one layer below the root, such as "com" or "jp"."
 
 **Subordinate CA:** A Certification Authority whose Certificate is signed by the Root CA, or
 another Subordinate CA.
@@ -647,11 +616,15 @@ maliciously.
 purpose of issuing and managing OATI webCARES Digital Certificates for his or her personal use.
 An Unaffiliated Individual who is approved through the OATI SIVP and is given access to the
 OATI webCARES system will be termed an SO, and will assume all duties and obligations of an
-LRA.
+ERA/LRA.
 
 **OATI webCARES system:** The OATI web-based Certificate Management System that allows an
 SO to issue, revoke and renew OATI webCARES Digital Certificates for an Organization, and an
 AO to audit OATI webCARES Digital Certificates for an Organization.
+
+**Valid Certificate:** A Certificate that passes the validation procedure specified in RFC 5280.
+
+**Validation Specialist:** Someone who performs the information verification duties specified by this CPS.
 
 **Validity Period:** From RFC 5280 (http://tools.ietf.org/html/rfc5280): “The period of time
 from notBefore through notAfter, inclusive.”
@@ -660,6 +633,9 @@ from notBefore through notAfter, inclusive.”
 is widely used for querying databases that store the registered users or assignees of an Internet
 resource, such as a Domain Name, an IP address block, or an autonomous system, but is also
 used for a wider range of other information.
+
+**Wildcard Certificate:** A Certificate containing at least one Wildcard Domain Name in the Subject Alternative Names in the Certificate.  OATI does not issue Wildcard Certificates.
+
 
 **XN-Label:** From RFC 5890 (http://tools.ietf.org/html/rfc5890): “The class of labels that begin
 with the prefix "xn--" (case independent), but otherwise conform to the rules for LDH labels.”
@@ -683,20 +659,20 @@ available audit reports are published within the Repository.
 
 ## 2.3 Time or Frequency of Publication
 
-Updates to the Repository are made periodically as determined by OATI staff.
+The repository is monitored continuously and repository updates are published and made available to relying parties when changes occur.
 
-The CRLs are updated hourly as well as anytime a certificate is revoked.
+The CRLs are updated and published hourly as well as when certificate revocation occurs. 
 
-This CPS shall be reviewed and updated by OATI as needed, but at least once every 365 days.
+OATI SHALL review this CP/CPS at least once every 365 days and whenever a material change occurs to applicable requirements, CA operations, certificate profiles, or security controls.
+
 
 ## 2.4 Access Controls on Repositories
 
 Documentation posted within the OATI Repository is considered publicly available. All OATI
 webCARES CA PKI Participants (as described above) have read access to the Repository.
 
-Only OATI employees in certain roles may be granted write access to the Repository. This
-access is granted according to OATI access control policies.
-
+Only OATI employees in certain roles may be granted write access to the Repository.  This access is granted according to OATI access control policies including multi-factor authentication (MFA) methods.  Changes to the Repository follow the OATI software development lifecycle and are conducted under MFA.
+ 
 # 3. Identification and Authentication
 
 ## 3.1 Naming
@@ -711,34 +687,42 @@ OATI Intermediate Certificates:
 
 ### 3.1.1 Type of Names
 
-OATI webCARES Certificates with subject DNs (Distinguished Names) are based upon the X. 500
-naming standards.
+OATI webCARES issues Certificates that contain a non-null Subject Distinguished Name (DN) complying with the X.500 standard, RFC 5280 and the CA/B Forum Baseline Requirements for naming.
+OV Certificates contain an X.501 distinguished name in the Subject name field, and incorporate the following attributes:
+- Country (C)
+- Organization (O)
+- State or Province (ST)
+- Locality (L)
+- Common Name (CN)
+
+The certificates also incorporate the Subject Alternative Name (SAN) extension, which must contain the value of CN from the Subject.
 
 ### 3.1.2 Need for Names to be Meaningful
 
-OATI webCARES Certificate names must be meaningful.
+OATI webCARES Certificate names must be meaningful. The contents of the Subject and Issuer fields must clearly, accurately, and logically identify the actual legal entity, organization, or device represented.  Names used in the Subject Distinguished Name must directly relate to the verified applicant.  For Organization-Validated (OV) certificates, the name must match the official business registries or legal documentation vetted by OATI.
+
+The Issuer Distinguished Name must identify the Issuing CA so that relying parties are able to trace back an unbroken, transparent chain of trust to a known root.
 
 ### 3.1.3 Anonymity or Pseudonymity of Subscribers
 
 #### 3.1.3.1 Anonymous Digital Certificates
 
-OATI webCARES will not issue anonymous Digital Certificates.
+Anonymous Digital Certificates are prohibited by OATI webCARES under this hierarchy.
 
 #### 3.1.3.2 Pseudonymous and Role-Based OATI webCARES Digital Certificates
 
-OATI webCARES may issue pseudonymous or role-based OATI webCARES Digital Certificates
-provided that such certificates are not prohibited by applicable policy and name uniqueness is
-preserved.
+Pseudonymous or Role-based certificates are prohibited by OATI webCARES under this hierarchy.
 
 ### 3.1.4 Rules for Interpreting Various Name Forms
 
-Distinguished names in OATI webCARES certificates are interpreted using X.500 standards and
-ASN.1 syntax. See RFC 2253 and RFC 2616 for further information on how X.500 distinguished
-names in Certificates are interpreted as Uniform Resource Identifiers and HTTP references.
+Distinguished names in OATI webCARES certificates are interpreted using X.500 standards and ASN.1 syntax.
+
+RFC 2253 explains how an X.500 distinguished name in ASN.1 is translated into a UTF-8 human-readable string representation, and RFC 2616 explains how to interpret Uniform Resource Identifiers (URIs) for HTTP references.
+
 
 ### 3.1.5 Uniqueness of Names
 
-OATI webCARES Certificates subject attributes must be unique.
+OATI webCARES Certificates subject attributes must be unique. Name uniqueness in subject attributes within OATI webCARES space is enforced by webCARES CA. OATI webCARES enforces name uniqueness within the X.500 name space for which they have been authorized.
 
 ### 3.1.6 Recognition, Authentication, and Role of Trademarks
 
@@ -752,7 +736,7 @@ the right to reject any certificate applications that violate this section (3.1.
 
 ### 3.2.1 Method to Prove Possession of Private Key
 
-No stipulation.
+For TLS/Server Certificates, Applicant submits a Certificate Signing Request (CSR) containing a digital signature generated by the private key corresponding to the public key in the certificate request. OATI webCARES technically validates this signature prior to issuance.
 
 ### 3.2.2 Authentication of Organization and Domain Identity
 
@@ -782,20 +766,11 @@ SIVP includes, but is not limited to:
 
 - Calling the Applicant’s contacts provided on the BRAF.
 - Verifying the DUNS number provided, and researching the Applicant’s company.
-- Verifying Applicant control over email addresses that will be included in certificates by
-sending an email and requiring a response from the receiver.
+- Verifying Applicant control over email addresses by sending an email and requiring a response from the receiver. 
 - Verifying Domain Name Ownership by making sure registration information returned from
 third party databases exactly match contract information OATI has for existing customers.
 
-Prior to using any data source as a Reliable Data Source, OATI shall evaluate the source for its
-reliability, accuracy, and resistance to alteration or falsification. OATI shall consider the
-following during its evaluation:
-
-1. The age of the information provided,
-2. The frequency of updates to the information source,
-3. The data provider and purpose of the data collection,
-4. The public accessibility of the data availability, and
-5. The relative difficulty in falsifying or altering the data.
+Please refer to section 3.2.2.7 for details on Data Source Accuracy.
 
 OATI uses one primary means to verify organizations/domain Applicants, which is DNS Change
 \- please see section 3.2.2.4.7.
@@ -811,6 +786,19 @@ as. This is then sent to the OATI Contracts team and they would state the DBA re
 See section 3.2.2.1.
 
 #### 3.2.2.4 Validation of Domain Authorization or Control
+
+This section defines the permitted processes and procedures for validating the Applicant's ownership or control of the domain.
+OATI MUST follow this process when choosing the ADN for validation of each applied-for FQDN: 
+1.	Initialize A to the applied-for FQDN. 
+2.	Choose a validation method (OATI uses method 3.2.2.4.7 DNS Change). 
+3.	If A is an FQDN: 
+	A.	If the validation method has a check in the CNAME column below, OATI MAY replace A with the result of a DNS CNAME lookup of A. This step may be repeated. 
+	B.	If the validation method has a check in the Prune column below and A is not equal to the Base Domain Name of A, OATI MAY replace A with the result of pruning the leftmost Domain Label from A. This step may be repeated. 
+4.	Use A as the ADN.
+
+|Method|Wildcard|Prune|CNAME|Onion|
+|---|---|---|---|---|
+|3.2.2.4.7 DNS Change|	N/A|	X|	X|	N/A|
 
 **3.2.2.4.1 Validating the Applicant as a Domain Contact**
 
@@ -838,13 +826,7 @@ OATI does not use this method of domain validation.
 
 **3.2.2.4.7 DNS Change**
 
-OATI shall confirm an Applicant’s control over a Fully Qualified Domain Name (FQDN) using a
-DNS Change validation method in accordance with CA/Browser Forum Baseline Requirements
-(BR) Section 3.2.2.4.7. OATI shall verify that the Applicant has placed a Random Value or
-Request Token in the Domain Name System (DNS) as a TXT record at an Authorization Domain
-Name, as defined in the Baseline Requirements using manual or automated mechanisms using
-ACME validation (dns-01) method (an Authorization Domain Name prefixed with a Domain Label
-beginning with an underscore character).
+OATI shall confirm an Applicant’s control over the ADN using a DNS Change validation method in accordance with CA/Browser Forum Baseline Requirements (BR) Section 3.2.2.4.7. OATI shall verify that the Applicant has placed a Random Value or Request Token in the Domain Name System (DNS) as a TXT record at an Authorization Domain Name, as defined in the Baseline Requirements using manual or automated mechanisms using ACME validation (dns-01) method (an Authorization Domain Name prefixed with a Domain Label beginning with an underscore character).
 
 OATI shall support the ACME dns-01 challenge method as defined in RFC 8555, Section 8.4, and
 as permitted by BR 3.2.2.4.7.
@@ -858,7 +840,7 @@ When using ACME dns-01 validation:
 3. OATI shall retrieve the DNS TXT record and verify that the correct Request Token is
     present prior to certificate issuance.
 4. Successful completion of the dns-01 challenge shall constitute confirmation of the
-    Applicant’s control over the FQDN.
+    Applicant’s control over the ADN.
 
 If a Random Value is used, the OATI shall provide a Random Value unique to the Certificate
 request and shall not use the Random Value after
@@ -868,72 +850,11 @@ i. 30 days, or
 ii. If the Applicant submitted the Certificate request, the time frame permitted for reuse of
 validated information relevant to the Certificate (such as in Section 4.2.1 of this CPS).
 
-**Note:** Once the FQDN has been validated using this method, OATI may also issue Certificates
-for other FQDNs that end with all the Domain Labels of the validated FQDN.
+**Note:** Once the FQDN has been validated using this method, OATI may also issue Certificates for other FQDNs that end with all the Domain Labels (sub-domains) of the validated FQDN.
 
-For this method, OATI also utilizes Multi-Perspective Issuance Corroboration as specified in Section 3.2.2.4.7.1. To count as corroborating, a Network Perspective MUST observe the same challenge information (i.e. Random Value Request Token) as the Primary Network Perspective.
+For this method, OATI also utilizes Multi-Perspective Issuance Corroboration as specified in Section 4.2.2.  To count as corroborating, a Network Perspective MUST observe the same challenge information (i.e. Random Value Request Token) as the Primary Network Perspective.
 
-**3.2.2.4.7.1 Multi-Perspective Issuance Corroboration (MPIC)**
-
-OATI has implemented MPIC in conformance with the CA/B Baseline Requirements.
-
-MPIC attempts to corroborate the determinations (i.e., domain validation pass/fail) made by
-the Primary Network Perspective from multiple remote Network Perspectives before Certificate
-issuance. This process can improve protection against equally-specific prefix Border Gateway
-Protocol (BGP) attacks or hijacks.
-
-The set of responses from the relied upon Network Perspectives MUST provide OATI with the
-necessary information to allow it to affirmatively assess: - a. the presence of the expected 1)
-Random Value, or 2) Request Token, as required by the relied upon validation method specified
-in Section 3.2.2.2 and b. OATI’s authority to issue to the requested domain(s), as specified in
-Section 4.2.5.
-
-Results or information obtained from one Network Perspective are not reused or cached when
-performing validation through subsequent Network Perspectives (e.g., different Network
-Perspectives cannot rely on a shared DNS cache to prevent an adversary with control of traffic
-from one Network Perspective from poisoning the DNS cache used by other Network
-Perspectives). The network infrastructure providing Internet connectivity to a Network
-Perspective MAY be administered by the same organization providing the computational
-services required to operate the Network Perspective. All communications between a remote
-Network Perspective and OATI MUST take place over an authenticated and encrypted channel
-relying on modern protocols (e.g., over HTTPS).
-
-A Network Perspective MAY use a recursive DNS resolver that is NOT co-located with the
-Network Perspective. However, the DNS resolver used by the Network Perspective MUST fall
-within the same Regional Internet Registry service region as the Network Perspective relying
-upon it. Furthermore, for any pair of DNS resolvers used on a Multi-Perspective Issuance
-Corroboration attempt, the straight-line distance between the two DNS resolvers MUST be at
-least 500 km. The location of a DNS resolver is determined by the point where unencapsulated
-outbound DNS queries are typically first handed off to the network infrastructure providing
-Internet connectivity to that DNS resolver.
-
-If MPIC does not corroborate, OATI may immediately retry MPIC using the same validation
-method or an alternative method. When retrying, OATI does not rely on corroborations from
-previous attempts. There is no stipulation regarding the maximum number of validation
-attempts that may be performed in any period of time.
-
-Network Perspectives are considered distinct when the straight-line distance between them is
-at least 500 km. Network Perspectives are considered “remote” when they are distinct from
-the Primary Network Perspective and the other Network Perspectives represented in a quorum.
-
-OATI has implemented MPIC using at least five remote Network Perspectives. OATI does not
-proceed with certificate issuance if the number of non-corroborations is greater than one and
-if the remote Network Perspectives that do corroborate the determinations made by the
-Primary Network Perspective do not fall within the service regions of at least two distinct
-Regional Internet Registries.
-
-The Remote Network Perspectives performing MPIC MUST rely upon networks implementing
-measures to mitigate BGP routing incidents in the global Internet routing system for providing
-internet connectivity to the Network Perspective.
-
-Beyond the above considerations, computing systems performing MPIC are considered outside
-of the audit scope described in Section 8.
-
-If any of the above considerations are performed by a Delegated Third Party, OATI MAY obtain
-reasonable evidence from the Delegated Third Party to ascertain assurance that one or more
-of the above considerations are followed. As an exception to Section 1.3.2, Delegated Third
-Parties are not required to be within the audit scope described in Section 8 to satisfy the above
-considerations.
+For TLS Server certificates DNSSEC validation is performed in accordance with CAB Baseline Requirements for TLS section 4.2.2.2 on all DNS queries associated with the validation of domain authorization or control, and CAA record lookups by the Primary Network Perspectives, including CNAME lookups performed while choosing the ADN.  DNSSEC validation back to the IANA DNSSEC root trust anchor MUST be performed on all DNS queries associated with the validation of domain authorization or control by the Primary Network Perspective and OATI does NOT use local policy to disable DNSSEC validation on any DNS query associated with the validation of domain authorization or control.
 
 **3.2.2.4.8 IP Address**
 
@@ -1015,25 +936,64 @@ the following during its evaluation:
 4. The public accessibility of the data availability, and
 5. The relative difficulty in falsifying or altering the data.
 
+OATI currently utilizes Dun & Bradstreet (D&B) (https://www.dnb.com/en-us/) as the primary Reliable Data Source for verifying company data.  OATI selected D&B based on the following criteria:
+1.	D&B provides the age of the entity tied to the D-U-N-S number; which details when the business was legally established or started operations.
+2.	D&B continuously updates its databased fields with specific profile sections displaying real-time or recently refreshed inquiry metrics.
+3.	D&B’s purpose of collecting data is to build commercial intelligence, credit ratings, and analytic to help organizations evaluate risk, make informed business decisions, and drive growth.  Data is collected to assign a unique 9-digit D-U-N-S number which functions as a standard corporate identifier to track business entities, branches, and subsidiaries. 
+4.	D-U-N-S numbers are publicly accessible and designed to be shared.
+5.	D&B has aggressive fraud prevention protocols to verify business data.  D&B utilizes multi-layered security including machine learning, computer vision to prevent spoofed location photos, reverse image searches, and cross-checks with official public registries. 
+
+Alternative methods may be utilized when D&B data is unable to be located; these methods include:
+1.	Government Registry Records: Official letters of incorporation or registration documents from authoritative bodies (e.g., a Secretary of State), verified via official electronic databases. 
+2.	Regulated Financial Institution Records: Official company bank statements dated within six months, matching the Applicant's registered name, with verified institution licensing. 
+3.	Independent Third-Party Utilities or Invoices: Recent bills or commercial invoices from established utility, telecom, or tax authorities, issued within six months and cross-checked for issuer validity. 
+
+These alternative methods show independent, verifiable, and legal/financial proof of an applicant’s identity and operational existence.
+1.	Letters of Incorporation from the Secretary of State: These serve as an authoritative government registry record, which represents the absolute highest tier of legal verification for a business entity's creation, active status, and official name within a jurisdiction.
+2.	Third-Party Bills or Invoices: These establish operational existence through a verified paper trail, showing that the company actively conducts business and maintains commercial relationships with known, established service providers (such as utilities or telecommunications firms).
+3.	Company Bank Statements: These offer definitive proof of financial activity and institutional vetting, as the applicant has already successfully cleared the stringent Anti-Money Laundering and Know Your Customer identity verifications required by a regulated financial institution.
+
+The method for verifying applicant information is documented within an OATI Ticket.  
+
 #### 3.2.2.8 CAA Records
 
-Please see section 4.2.5.
+Please see section 4.2.2.
 
 #### 3.2.2.9 Multi-Perspective Issuance Corroboration
 
-Please see section 3.2.2.4.7.1.
+OATI has implemented MPIC in conformance with the CA/B Baseline Requirements.
+
+MPIC attempts to corroborate the determinations (i.e., domain validation pass/fail) made by the Primary Network Perspective from multiple remote Network Perspectives before Certificate issuance. This process can improve protection against equally‐specific prefix Border Gateway Protocol (BGP) attacks or hijacks.
+
+The set of responses from the relied upon Network Perspectives MUST provide OATI with the necessary information to allow it to affirmatively assess:
+a.	The presence of the expected 1) Random Value, or 2) Request Token, as required by the relied upon validation method specified in Section 3.2.2.2, and 
+b.	OATI’s authority to issue to the requested domain(s), as specified in Section 4.2.2.
+
+Results or information obtained from one Network Perspective are not reused or cached when performing validation through subsequent Network Perspectives (e.g., different Network Perspectives cannot rely on a shared DNS cache to prevent an adversary with control of traffic from one Network Perspective from poisoning the DNS cache used by other Network Perspectives). The network infrastructure providing Internet connectivity to a Network Perspective MAY be administered by the same organization providing the computational services required to operate the Network Perspective. All communications between a remote Network Perspective and OATI MUST take place over an authenticated and encrypted channel relying on modern protocols (e.g., over HTTPS).
+
+A Network Perspective MAY use a recursive DNS resolver that is NOT co‐located with the Network Perspective. However, the DNS resolver used by the Network Perspective MUST fall within the same Regional Internet Registry service region as the Network Perspective relying upon it. Furthermore, for any pair of DNS resolvers used on a Multi‐Perspective Issuance Corroboration attempt, the straight‐line distance between the two DNS resolvers MUST be at least 500 km. The location of a DNS resolver is determined by the point where unencapsulated outbound DNS queries are typically first handed off to the network infrastructure providing Internet connectivity to that DNS resolver.
+
+If MPIC does not corroborate, OATI may immediately retry MPIC using the same validation method or an alternative method. When retrying, OATI does not rely on corroborations from previous attempts. There is no stipulation regarding the maximum number of validation attempts that may be performed in any period of time.
+
+Network Perspectives are considered distinct when the straight‐line distance between them is at least 500 km. Network Perspectives are considered “remote” when they are distinct from the Primary Network Perspective and the other Network Perspectives represented in a quorum.  
+
+OATI has implemented MPIC using at least five remote Network Perspectives.  OATI does not proceed with certificate issuance if the number of non-corroborations is greater than one and if the remote Network Perspectives that do corroborate the determinations made by the Primary Network Perspective do not fall within the service regions of at least two distinct Regional Internet Registries.
+
+The Remote Network Perspectives performing MPIC MUST rely upon networks implementing measures to mitigate BGP routing incidents in the global Internet routing system for providing internet connectivity to the Network Perspective.
+
+Beyond the above considerations, computing systems performing MPIC are considered outside of the audit scope described in Section 8.
+
+If any of the above considerations are performed by a Delegated Third Party, OATI may obtain reasonable evidence from the Delegated Third Party to ascertain assurance that one or more of the above considerations are followed. As an exception to Section 1.3.2, Delegated Third Parties are not required to be within the audit scope described in Section 8 to satisfy the above considerations.
 
 ### 3.2.3 Authentication of Individual Identity
 
 Not Applicable.
 
-OATI webCARES CA does not issue individual validated TLS Server certificates to natural persons. 
-
-OATI webCARES CA issues Organization Validated (OV) Server Certificates to legal entities/organizations in accordance with the applicable requirements of Section 3.2.2. 
+OATI webCARES CA does not issue individual validated TLS Server certificates to natural persons. OATI webCARES CA issues Organization Validated (OV) Server Certificates to legal entities/organizations in accordance with the applicable requirements of Section 3.2.2. 
 
 ### 3.2.4 Non-Verified Subscriber Information
 
-No stipulation.
+OATI webCARES does not include non-verified subscriber information in public certificates; all included attributes undergo mandatory verification.
 
 ### 3.2.5 Validation of Authority
 
@@ -1055,9 +1015,7 @@ a new certificate will be issued.
 
 ### 3.3.2 Identification and Authentication for Rekey After Revocation
 
-OATI does not perform Certificate Rekey activities; instead a certificate would be revoked and
-a new certificate will be issued. In the event an OATI webCARES Digital Certificate has been
-revoked, the Subscriber’s identity shall be re-authenticated by the RA/LRA as a new Subscriber.
+OATI does not perform Certificate Rekey activities; instead a certificate would be revoked and a new certificate will be issued.  In the event an OATI webCARES Digital Certificate has been revoked, the Subscriber’s identity shall be re-authenticated by the SO/LRA/ERA as a new Subscriber.
 
 ## 3.4 Identification and Authentication for Revocation Request
 
@@ -1075,33 +1033,24 @@ noted in 3.4.1 will be subject to further identification and authentication.
 
 # 4. Certificate Lifecycle Operational Requirements
 
-Digital Certificate Lifecycle Management refers to functions that include:
+This section describes the operational requirements and processes governing the end-to-end lifecycle of certificates issued by OATI. Digital Certificate Lifecycle Management refers to functions that include:
+- Subscriber Registration: The submission, verification of identity, and processing of an Applicant’s certificate request.
+- Certificate Issuance: The technical generation, cryptographic signing, and creation of the Digital Certificate.
+- Certificate Distribution: The delivery, publication, and availability of the issued certificate to the Subscriber and relying parties.
+- Certificate Revocation: The process of permanently invalidating a certificate prior to its scheduled expiration date.
+- Certificate Validation & Status Processing: The generation and distribution of Certificate Status Information (such as CRLs and OCSP responses) to enable relying parties to verify validity.
+- Lifecycle Maintenance: Ongoing maintenance activities including certificate application modification, renewal, re-key, and end of subscription procedures.
 
-- Verification of the identity of an Applicant
-- Issuing Digital Certificates
-- Revoking Digital Certificates
-- Listing Digital Certificates
-- Distributing Digital Certificates
-- Storing Digital Certificates
-- Testing Digital Certificates
 
 ## 4.1 Certificate Application
 
 ### 4.1.1 Who Can Submit a Certificate Application
 
-OATI maintains a list of safe countries and blocks other connection requests via firewalls.
-Entities may submit certificate application requests through either Automatic Certificate
-Management Environment (ACME) protocol or through the webCARES GUI. Issuance of
-certificates is dependent on successful validation method and compliance with OATI policies.
+OATI maintains a list of safe countries and blocks other connection requests via firewalls.  Entities may submit certificate application requests through either Automatic Certificate Management Environment (ACME) protocol or through the webCARES GUI. Issuance of certificates is dependent on successful validation method and compliance with OATI policies including this CPS and an executed OATI webCARES Customer Agreement.
 
 ### 4.1.2 Enrollment Process and Responsibilities
 
-Certificate enrollment is initiated by an authorized Security Officer (SO) acting as a Local
-Registration Authority (LRA). All certificate requests MUST include a valid Certificate Signing
-Request (CSR). The SO submits the CSR through the OATI webCARES system. OATI webCARES
-validates the CSR and confirms that the Subject and domain information contained in the
-request is consistent with verified Applicant information. The information contained in the CSR
-SHALL NOT override verified identity, organization, or domain authorization data.
+Certificate enrollment is initiated by an authorized Security Officer (SO) acting as an Enterprise Registration Authority (ERA)/Local Registration Authority (LRA). All certificate requests MUST include a valid CSR. The SO submits the CSR through the OATI webCARES system. OATI webCARES validates the CSR and confirms that the Subject and domain information contained in the request is consistent with verified Applicant information. The information contained in the CSR SHALL NOT override verified identity, organization, or domain authorization data.
 
 A new certificate must be created for any incongruent or outdated information and a new BRAF
 must be verified by OATI.
@@ -1138,6 +1087,77 @@ If the information being submitted to OATI webCARES is determined to be inaccura
 application is rejected. OATI may reject applications that fail to meet documented policy,
 technical, or validation requirements.
 
+#### 4.2.2.1	CAA Record Processing 
+As part of the issuance process for Server Certificates, OATI webCARES retrieves and processes CAA records for the FQDN included in the Certificate, in accordance with RFC 8659 and TLS Baseline Requirements Section 3.2.2.9. If this check (and all others) pass, OATI webCARES will issue the server certificate within the Time to Live (TTL) of the CAA record, or 8 hours, whichever is greater.
+
+OATI validates FQDNs against the domain's CAA records. If a CAA record exists that does not list oaticerts.com as an authorized CA, OATI will not issue the server certificate. Additional CAA record processing rules include:
+- OATI processes the CAA issue, issuewild, and iodef property tags as specified by RFC 8659.
+- OATI does not issue wildcard Certificates. Nevertheless, OATI processes the issuewild property tag in accordance with RFC 8659 when evaluating CAA records. A restrictive issuewild record is therefore recognized and applied during CAA processing even though OATI does not issue wildcard Certificates.
+- OATI retrieves and processes the iodef property tag in accordance with RFC 8659. OATI is not required to act upon or send reports to the contact information specified by an iodef record.
+- OATI also processes the CAA critical flag. If OATI encounters an unrecognized CAA property tag marked as critical, OATI will not issue the Certificate.
+- No additional property tags are supported.
+- OATI supports both Primary CAA and MPIC CAA validation to ensure proper authorization before certificate issuance. 
+- OATI supports “accounturi” and “validationmethods” parameters extensions to CAA Record per RFC 8657.
+- All relevant CAA record processing actions taken, if any, are audited.
+- DNSSEC validation is performed in accordance with CAB Baseline Requirements for TLS section 3.2.2.8.1 and 4.2.2.2 on all DNS queries associated with CA record lookups performed by the Primary Network Perspective.
+
+OATI does not issue a Certificate unless it determines that the Certificate request is authorized by the applicable CAA Resource Record Set (RRset), or that no applicable CAA record exists, in accordance with RFC 8659 and the CA/Browser Forum TLS Baseline Requirements.
+
+OATI permits issuance only when one of the following conditions is satisfied:
+- CAA authorization: The applicable CAA RRset authorizes ‘oaticerts.com’ to issue the requested Certificate, taking into account the applicable issue and issuewild property tags and the critical flag.
+- No applicable CAA record: No applicable CAA record is found after processing the DNS responses in accordance with RFC 8659, including the applicable rules for following the DNS hierarchy and determining whether a CAA RRset exists.
+
+If an applicable CAA RRset exists but does not authorize ‘oaticerts.com’ to issue the requested Certificate, OATI will reject the Certificate request. OATI will also reject the request if the applicable CAA RRset contains an unrecognized property tag marked as critical, or if any other CAA processing requirement prevents OATI from determining that issuance is authorized.
+
+OATI does not rely on exceptions to CAA checking permitted by the TLS Baseline Requirements, including exceptions relating to Certificate Transparency precertificate issuance or Technically Constrained Subordinate CA Certificates. OATI performs CAA processing for all applicable Certificate requests in accordance with its documented procedures.
+
+A CAA DNS lookup failure is not, by itself, considered permission to issue. If OATI cannot successfully determine whether issuance is authorized, the Certificate request will be rejected. OATI will not treat a DNSSEC validation error, an indeterminate CAA result, or an unresolved lookup failure as permission to issue.
+
+OATI documents potential Certificate issuances prevented by a CAA record in sufficient detail to provide feedback to the CA/Browser Forum on the circumstances, as required by the TLS Baseline Requirements. OATI does not support dispatching reports to the contact information specified in CAA iodef property tags.
+
+##### 4.2.2.1.1	CAA Multi-Perspective Issuance Corroboration 
+For CAA Multi-Perspective Issuance Corroboration, OATI processes the results in accordance with the TLS Baseline Requirements. 
+
+OATI will consider a remote Network Perspective’s CAA check response to corroborate the Primary Network Perspective only when the applicable CAA processing results establish that issuance is authorized. The responses from the Primary and remote Network Perspectives are not required to be byte-for-byte identical, provided that the applicable requirements for CAA processing and MPIC are satisfied.
+
+OATI does not rely on CAA record lookup failures as permission to issue or as a basis for treating CAA authorization as established. If a required CAA check fails, or if OATI cannot establish that issuance is authorized in accordance with its CAA processing policy, OATI will reject the Certificate request.
+
+##### 4.2.2.1.2	CAA Parameters 
+OATI supports the accounturi and validationmethods CAA parameters in accordance with RFC 8657. OATI processes these parameters when present and applicable to the Certificate request. If the applicable CAA parameters do not authorize the requested issuance, OATI will reject the Certificate request 
+
+#### 4.2.2.2	DNSSEC Validation Requirements
+DNSSEC validation is performed in accordance with the CA/Browser Forum TLS Baseline Requirements, Sections 3.2.2.8.1 and 4.2.2.2, for DNS queries associated with domain authorization or control validation and CAA record processing performed by the Primary Network Perspective.
+
+##### 4.2.2.2.1	DNS Resolver Requirements
+The DNS resolver used by the Primary Network Perspective. The DNS resolver used for all DNS queries associated with the validation of domain authorization or control and for CAA record lookups performed by the Primary Network Perspective MUST: 
+- Perform DNSSEC validation using the algorithm defined in RFC 4035, Section 5; and 
+- Support NSEC3 as defined in RFC 5155; and 
+- Support SHA-2 as defined in RFC 4509 and RFC 5702; and 
+- Properly handle the security concerns enumerated in RFC 6840, Section 4. 
+
+##### 4.2.2.2.2	Applicability and Scope 
+DNSSEC validation MUST be performed by the Primary Network Perspective on all DNS queries associated with: 
+- The validation of domain authorization or control as described in Section 3.2.2.4; and 
+- CAA record lookups as described in Section 4.2.2.1. 
+
+##### 4.2.2.2.3	Email Domain Validation Methods - Partial Exception 
+Not Applicable – OATI does not perform email domain validation.
+
+##### 4.2.2.2.4	Prohibition on Disabling DNSSEC Validation 
+ OATI MUST NOT use local policy to disable DNSSEC validation on any DNS query associated with the validation of domain authorization or control or with CAA record lookups performed by the Primary Network Perspective. 
+
+##### 4.2.2.2.5	DNSSEC Validation Errors
+DNSSEC validation errors observed by the Primary Network Perspective, including SERVFAIL, MUST NOT be treated as permission to issue. If a DNSSEC validation error prevents OATI from successfully determining domain authorization or control, or from determining whether the requested Certificate is authorized by the applicable CAA records, OATI will reject the Certificate request.
+
+##### 4.2.2.2.6	Remote Network Perspectives 
+OATI performs DNSSEC validation on DNS queries associated with domain authorization or control validation and CAA record lookups from the Primary Network Perspective. OATI does not perform DNSSEC validation from remote Network Perspectives used for Multi-Perspective Issuance Corroboration (MPIC).
+
+##### 4.2.2.2.7	Exclusions 
+The full set of DNS lookup information related to DNSSEC validation back to the IANA DNSSEC root trust anchor is considered outside the scope of: 
+- Self-audits performed to fulfill the requirements in Section 8.7.; and 
+- The logging requirements of Section 5.4.1. 
+The above exclusions notwithstanding, OATI MUST retain information sufficient to verify that DNSSEC validation is being carried out in accordance with the requirements contained in the rest of Section 4.2.2.2.
+
 ### 4.2.3 Time to Process Certificate Applications
 
 Certificate applications are either accepted or rejected immediately upon submittal within
@@ -1148,37 +1168,9 @@ OATI webCARES.
 Once issued, OATI webCARES Digital Certificates are distributed to Subscribers and Relying
 Parties via TLS or similar secure transfer mechanisms.
 
-### 4.2.5 CAA Records
-
-As part of the issuance process for server certificates, OATI webCARES retrieves and processes
-CAA records for the URL specified in the commonName field (which is also used in the
-subjectAltName extension of the server certificate to be issued), following the processing
-instructions set forth in RFC 8659 and in accordance with section 3.2.2.8 of the Baseline
-Requirements, for any records found. If this check (and all others) pass, OATI webCARES will
-issue the server certificate within the Time to Live (TTL) of the CAA record, or 8 hours,
-whichever is greater.
-
-OATI validates this FQDN against the domain's CAA records. If a CAA record exists that does not
-list oaticerts.com as an authorized CA, OATI will not issue the server certificate. Additional CAA
-record processing rules include:
-
-- Only the issue CAA tag is supported.
-- The “iodef” and “issuewild” properties are not acted upon (i.e., OATI does not issue
-wildcard certificates, nor does it dispatch reports of such issuance requests to the contact(s)
-stipulated in the CAA iodef record(s)).
-- No additional property tags are supported.
-- Support both Primary CAA and MPIC CAA validation to ensure proper authorization before
-certificate issuance.
-- Support “accounturi” and “validationmethods” parameters extensions to CAA Record per
-RFC 8657.
-- All relevant CAA record processing actions taken, if any, are audited.
-- Effective March 15, 2026, for TLS Server certificates, DNSSEC validation is performed in accordance with CAB Baseline Requirements for TLS section 3.2.2.8.1. DNSSEC validation back to the IANA DNSSEC root trust anchor MUST be performed on all DNS queries associated with the validation of domain authorization or control by the Primary Network Perspective and CAs MUST NOT use local policy to disable DNSSEC validation on any DNS query associated with the validation of domain authorization or control.
-
 ## 4.3 Certificate Issuance
 
-OATI webCARES issues OATI webCARES Digital Certificates after the SIVP has been completed.
-The OATI webCARES Digital Certificates are generated and issued in a manner that protects the
-OATI webCARES Digital Certificate and CA from unauthorized access.
+OATI webCARES issues OATI webCARES Digital Certificates after the SIVP has been completed.  The OATI webCARES Digital Certificates are generated and issued in a manner that protects the OATI webCARES Digital Certificate and CA from unauthorized access
 
 ### 4.3.1 CA Actions During Certificate Issuance
 
@@ -1188,9 +1180,7 @@ to issuing the certificate.
 
 #### 4.3.1.1 Manual Authorization of Certificate Issuance for Root CAs
 
-Root certificate issuance by OATI shall require an individual authorized by OATI (i.e. the CA
-system operator, system officer, or PKI administrator) to deliberately issue a direct command
-in order for OATI to perform a certificate signing operation.
+Root certificate issuance by OATI shall require an individual authorized by OATI (i.e. the CA system operator, system officer, or PKI administrator) to deliberately issue a direct command in order for OATI to perform a certificate signing operation.  OATI webCARES does not support automated or un-attended root certificate issuance and requires manual, deliberate action or command by an authorized human operator for each individual signing event.  Root actions require multi-party control as detailed in Section 5.2.  OATI personnel performing root actions must authenticate to the webCARES Root CA system using unique, non-shared credentials tied to their designated trusted role within a secure offline HSM environment.
 
 #### 4.3.1.2 Linting of To-Be-Signed Certificate Content
 
@@ -1205,17 +1195,23 @@ certificate containing the to-be-signed Certificate content include, but are not
 certified by a Certificate that chains to a publicly-trusted CA Certificate; or
 - Specify a static value for the signature field of the Certificate ASN.1 SEQUENCE.
 
-OATI uses the Linting tools that have been widely adopted by the industry (see
-https://cabforum.org/resources/tools/).
+Any structural, syntactic, or profile violation detected during the linting phase will immediately halt the issuance pipeline and prevent certificate generation/signing.
+
+OATI uses the Linting tools that have been widely adopted by the industry (see https://cabforum.org/resources/tools/).  OATI review the tools for updates at least quarterly, and implements changes when needed.
 
 #### 4.3.1.3 Linting of Issued Certificates
 
-OATI may uses a Linting process to test each issued Certificate.
+OATI uses a Linting process to test each issued Certificate.
 
 ### 4.3.2 Notifications to Subscriber by OATI of Issuance of Certificate
 
-Notification of certificate issuance is provided by OATI webCARES to the SO that requested the
-certificate. The SO is then responsible for providing the certificate to the Subscriber.
+Notification of certificate issuance is immediately provided by OATI webCARES to the SO that requested the certificate.  The SO is then responsible for providing the certificate to the Subscriber.  
+
+For certificates issued through the webCARES GUI Portal, the issued certificate is made available to the authorized Subscriber for download through the webCARES interface.
+
+For certificates issued through ACME, the issued certificate is made available to the ACME client through the applicable ACME protocol response provided by the webCARES ACME service.
+
+Subscribers are responsible for retrieving the issued certificate through the applicable interface.
 
 ## 4.4 Certificate Acceptance
 
@@ -1240,9 +1236,26 @@ authorized and legal purposes.
 
 ### 4.4.2 Publication of the Certificate by OATI
 
-All publically trusted TLS certificates issued by OATI webCARES SHALL be submitted to at least
-two independent, qualified Certificate Transparency logs prior to issuance, in accordance with
-CA/Browser Forum Baseline Requirements.
+OATI shall publish and make available all issued publicly trusted TLS certificates in accordance with the CA/Browser Forum Baseline Requirements and root store policies.
+
+#### 4.4.2.1	Certificate Transparency (CT) Compliance
+All publicly trusted TLS certificates issued by OATI SHALL be submitted to at least two (2) independent, qualified Certificate Transparency (CT) logs operating in compliance with RFC 6962 and approved by major root program operators (e.g., Google, Apple).
+
+OATI achieves this by using the following mechanisms:
+- Precertificates: OATI issues a precertification block to submit to the CT logs.
+- SCT Inclusion: OATI retrieves the resulting Signed Certificate Timestamps (SCTs) from the logs and embeds them directly into the extensions of the final, issued certificate.
+
+#### 4.4.2.2	Log Outage and Failure Handling
+If OATI cannot obtain the minimum required number of valid SCTs from independent, qualified CT logs due to a network outage, log failure, or any other technical disruption:
+- The certificate issuance workflow SHALL be automatically halted for that request.
+- OATI SHALL NOT issue the final publicly trusted TLS certificate until compliant SCTs are successfully obtained and validated.
+- OATI operations team will log the incident and follow internal disaster recovery and log failover procedures to restore compliance.
+
+#### 4.4.2.3	Public Repositories
+OATI SHALL maintain a publicly accessible repository available 24/7 that contains:
+- OATI’s root and intermediate certificates.
+- The most up-to-date version of this CPS.
+- Valid Certificate Revocation Lists (CRLs).
 
 ### 4.4.3 Notification of Certificate Issuance by OATI to Other Entities
 
@@ -1273,11 +1286,13 @@ business purpose to use it.
 - To not share their personal OATI webCARES Digital Certificates.
 - To respond to OATI instructions regarding a compromise to the Private Key or misuse of the
 OATI webCARES Digital Certificate.
+- Subscribers shall protect their Private Keys corresponding to the Public Key in the Certificate in accordance with Section 9.6.3, provisions 2 and 4. 
 
 ### 4.5.2 Relying Party Public Key and Certificate Usage
 
 To reasonably rely on the OATI webCARES Digital Certificate, a Relying Party must:
-
+- Evaluate the context, application environment, and intended use of the certificate before choosing to rely on it.
+- Determine whether operational risk is acceptable.  If a Relying Party determines the risk of reliance is unacceptable, the Relying Party should not rely on the certificate.
 - Trust an OATI webCARES Digital Certificate only if it is valid and has not been revoked or
 expired.
 - Verify the entire OATI webCARES Digital Certificate validation/trust chain to the issuing
@@ -1288,6 +1303,7 @@ Certificates and signatures.
 - Read and agree with the terms of this CPS.
 - Verify the validity of the OATI webCARES Digital Certificate by referring to the relevant
 CRL.
+- Respect the technical constraints embedded within the certificate extensions (such as Key Usage, Extended Key Usage, and Basic Constraints) and cease reliance if a certificate is being used outside its intended scope.
 
 ## 4.6 Certificate Renewal
 
@@ -1302,9 +1318,7 @@ No stipulation for active webCARES Digital Certificates.
 
 #### 4.6.1.1 Notice Prior to Expiration
 
-OATI webCARES RAs shall make reasonable efforts to notify Subscribers via email of an upcoming
-expiration of an OATI webCARES Digital Certificate. Notice will ordinarily be provided within a
-30-day period prior to the expiration date of the respective OATI webCARES Digital Certificate.
+OATI webCARES RAs shall make reasonable efforts to notify Subscribers via email of an upcoming expiration of an OATI webCARES Digital Certificate.  Notice will ordinarily be provided within a 30-day period prior to the expiration date of the respective OATI webCARES Digital Certificate.  Security Officers will receive email reminders from OATI webCARES 30, 15, 7, 6, 5, 4, 3, 2, and 1 days prior to certification expiration.  Future functionality will permit these timings to be configurable by customer. 
 
 ### 4.6.2 Who May Request Renewal
 
@@ -1312,10 +1326,7 @@ SOs may request certificate renewals within the OATI webCARES GUI.
 
 ### 4.6.3 Processing Certificate Renewal Requests
 
-When a Subscriber seeks renewal for an OATI webCARES Digital Certificate, the RA/LRA will
-authenticate the identity of the Subscriber prior to renewing his or her OATI webCARES Digital
-Certificate. Once renewed, the previous OATI webCARES Digital Certificate is allowed to
-expire.
+When a Subscriber seeks renewal for an OATI webCARES Digital Certificate, the SO/LRA/ERA will authenticate the identity of the Subscriber prior to renewing his or her OATI webCARES Digital Certificate.  Once renewed, the previous OATI webCARES Digital Certificate is allowed to expire.
 
 ### 4.6.4 Notification of New Certificate Issuance to Subscriber
 
@@ -1328,9 +1339,7 @@ acceptance of the certificate renewal.
 
 ### 4.6.6 Publication of the Renewal Certificate by OATI
 
-All publically trusted TLS certificates issued by OATI webCARES SHALL be submitted to at least
-two independent, qualified Certificate Transparency logs prior to issuance, in accordance with
-CA/Browser Forum Baseline Requirements.
+All publicly trusted TLS server certificates issued by OATI webCARES SHALL satisfy the Certificate Transparency logging requirements applicable at the time of issuance, including the requirements of the CA/Browser Forum Baseline Requirements and the Chrome Root Program. OATI SHALL ensure that the required precertificates is successfully submitted to the required Certificate Transparency logs before issuance of the corresponding certificate. 
 
 ### 4.6.7 Notification of Certificate Issuance by OATI to Other Entities
 
@@ -1422,65 +1431,43 @@ OATI does not permit certificate suspension.
 
 ### 4.9.1 Circumstances for Revocation
 
-An SO is primarily responsible to revoke the Subscriber’s Digital Certificates with respect to any
-of the SO’s users. Alternatively the OATI webCARES Administrator may also revoke the OATI
-webCARES Digital Certificate of an End Entity or SO.
+#### 4.9.1.1	Reasons for Revoking a Subscriber Certificate
+An SO is primarily responsible to revoke the Subscriber’s Digital Certificates with respect to any of the SO’s users.  Alternatively, an OATI webCARES Administrator may also revoke the OATI webCARES Digital Certificate of an End Entity or SO.
 
-Where the following conditions or circumstances occur, an OATI webCARES Digital Certificate
-issued by the OATI webCARES system (with the exception of Short-lived Subscriber Certificates)
-must be immediately revoked within 24 hours and use the corresponding CRLReason (see Section
-7.2.2):
+Where the following conditions or circumstances occur, an OATI webCARES Digital Certificate issued by the OATI webCARES system (with the exception of Short-lived Subscriber Certificates) must be revoked within 24 hours and use the corresponding CRLReason (see Section 7.2.2):
+1.	When requested, in writing, by an SO, without specifying a CRLReason (CRLReason "unspecified (0)" which results in no reasonCode extension being provided in the CRL).
+2.	When OATI becomes aware of an emergency which, if the OATI webCARES Digital Certificate is not revoked, may have material commercial impact to parties operation in accordance with the NAESB BPS.
+3.	When the SO or Subscriber notifies OATI that the original certificate request was not authorized and does not retroactively grant authorization (CRLReason #9, privelegeWithdrawn).
+4.	When OATI obtains evidence that the Subscriber’s Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise (CRLReason #1, keyCompromise). 
+5.	When OATI is made aware of a demonstrated or proven method that can easily compute the Subscriber’s Private Key based on the Public Key in the Certificate, including but not limited to those identified in section 6.1.1.1.1 (CRLReason #1, keyCompromise). 
+6.	 When OATI obtains evidence that the validation of domain authorization or control for any FQDN or IP address in the Certificate should not be relied upon (CRLReason #4, Superseded).
 
-1. When requested, in writing, by an SO, without specifying a CRLReason (CRLReason “unspecified (0)” which results in no reasonCode extension being provided in the CRL).
+Where the following conditions or circumstances occur, an OATI webCARES Digital Certificate issued by the OATI webCARES system (with the exception of Short-lived Subscriber Certificates) should be revoked within 24 hours, but must be revoked within 5 days and use the corresponding CRLReason:
+1.	When OATI is notified that a device, server, or application is no longer active or no longer affiliated with the Subscriber’s organization.
+2.	When a contract is terminated with OATI webCARES.
+3.	When the Certificate no longer complies with the requirements of this CPS (CRLReason #4, Superseded).
+4.	When OATI obtains evidence that the Certificate was misused (CRLReason #9, privelegeWithdrawn).
+5.	When OATI is made aware of any circumstance indicating that use of an FQDN or IP address in the Certificate is no longer legally permitted (e.g., a court or arbitrator has revoked a Domain Name Registrant’s right to use the Domain Name, a relevant licensing or services agreement between the Domain Name Registrant and the Applicant has terminated, or the Domain Name Registrant has failed to renew the Domain Name) (CRLReason #5, cessationOfOperation)..
+6.	When OATI is made aware that a Wildcard Certificate has been used to authenticate a fraudulently misleading subordinate FQDN (CRLReason #9, privelegeWithdrawn).
+7.	When OATI is made aware of a material change in the information contained in the Certificate (CRLReason #9, privelegeWithdrawn). 
+8.	When OATI is made aware that the Certificate was not issued in accordance with the CA/B Baseline Requirements or this CPS (CRLReason #4, superseded). 
+9.	When OATI determines or is made aware that any of the information appearing in the Certificate is inaccurate (CRLReason #9, privelegeWithdrawn).
+10.	When OATI’s right to issue Certificates under the CA/B Baseline Requirements expires or is revoked or terminated, unless OATI has made arrangements to continue maintaining the CRL Repository (CRLReason #unspecified (0)” which results in no reasonCode extension being provided in the CRL).
+11.	When revocation is required by OATI’s CPS for a reason that is not otherwise specified by this section 4.9.1 (CRLReason “unspecified (0)” which results in no reasonCode extension being provided in the CRL).
+12.	When OATI is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed (CRLReason #1, keyCompromise).
+13.	When OATI is made aware that a Subscriber has violated one or more of its material obligations under the Subscriber Agreement or Terms of Use (CRLReason #9, privelegeWithdrawn).
+14.	For SO certificates:  When OATI is notified that a party listed as the SO no longer represents a Business Organization. 
 
-2. When OATI reasonably suspects or becomes aware that the Private Key, or the media holding the Private Key, is suspected to be compromised or actually is compromised.
-
-3. When OATI becomes aware of an emergency which, if the OATI webCARES Digital Certificate is not revoked, may have material commercial impact to parties operation in accordance with the NAESB WEQ-012 Standards.
-
-4. When the SO or Subscriber notifies OATI that the original certificate request was not authorized and does not retroactively grant authorization (CRLReason #9, privelegeWithdrawn).
-
-5. When OATI obtains evidence that the Subscriber’s Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise (CRLReason #1, keyCompromise).
-
-6. OATI is made aware of a demonstrated or proven method that can easily compute the Subscriber’s Private Key based on the Public Key in the Certificate, including but not limited to those identified in section 6.1.1.1.1 (CRLReason #1, keyCompromise).
-
-7. OATI obtains evidence that the validation of domain authorization or control for any FQDN or IP address in the Certificate should not be relied upon (CRLReason #4, Superseded).
-
-Where the following conditions or circumstances occur, an OATI webCARES Digital Certificate
-issued by the OATI webCARES system (with the exception of Short-lived Subscriber Certificates)
-should be revoked within 24 hours, but must be revoked within 5 days and use the corresponding
-CRLReason:
-
-1. When OATI is notified that a device, server, or application is no longer active or no longer affiliated with the Subscriber’s organization.
-
-2. When a contract is terminated with OATI webCARES.
-
-3. When the Certificate no longer complies with the requirements of this CPS (CRLReason #4, Superseded).
-
-4. OATI obtains evidence that the Certificate was misused (CRLReason #9, privelegeWithdrawn).
-
-5. OATI is made aware of any circumstance indicating that use of an FQDN or IP address in the Certificate is no longer legally permitted (e.g., a court or arbitrator has revoked a Domain Name Registrant’s right to use the Domain Name, a relevant licensing or services agreement between the Domain Name Registrant and the Applicant has terminated, or the Domain Name Registrant has failed to renew the Domain Name) (CRLReason #5, cessationOfOperation)..
-
-6. OATI is made aware that a Wildcard Certificate has been used to authenticate a fraudulently misleading subordinate FQDN (CRLReason #9, privelegeWithdrawn).
-
-7. OATI is made aware of a material change in the information contained in the Certificate (CRLReason #9, privelegeWithdrawn).
-
-8. OATI is made aware that the Certificate was not issued in accordance with these Requirements or OATI’s Certificate Policy or CPS (CRLReason #4, superseded).
-
-9. OATI determines or is made aware that any of the information appearing in the Certificate is inaccurate (CRLReason #9, privelegeWithdrawn).
-
-10. OATI’s right to issue Certificates under these Requirements expires or is revoked or terminated, unless OATI has made arrangements to continue maintaining the CRL Repository (CRLReason #unspecified (0)” which results in no reasonCode extension being provided in the CRL).
-
-11. Revocation is required by OATI’s Certificate Policy and/or CPS for a reason that is not otherwise required to be specified by this section 4.9.1 (CRLReason “unspecified (0)” which results in no reasonCode extension being provided in the CRL).
-
-12. OATI is made aware of a demonstrated or proven method that exposes the Subscriber's Private Key to compromise or if there is clear evidence that the specific method used to generate the Private Key was flawed (CRLReason #1, keyCompromise).
-
-13. If a certificate is being used to promote malware or unwanted software, OATI will revoke the certificate within a commercially-reasonable timeframe not to exceed two business days from the date the request was received.
-
-14. OATI is made aware that a Subscriber has violated one or more of its material obligations under the Subscriber Agreement or Terms of Use (CRLReason #9, privelegeWithdrawn).
-
-15. The technical content or format of the Certificate presents an unacceptable risk to Application Software Suppliers or Relying Parties (e.g., a deprecated cryptographic/signature algorithm or key size might present an unacceptable risk and need to be revoked and replaced by CAs within a given period of time).
-
-16. For SO certificates: When OATI is notified that a party listed as the SO no longer represents a Business Organization.
+#### 4.9.1.2	Reasons for Revoking a Subordinate CA Certificate 
+OATI SHALL revoke a Subordinate CA Certificate within seven (7) days if one or more of the following occurs:
+1.	OATI determines that the Subordinate CA is no longer authorized to issue certificates.
+2.	OATI obtains evidence that the Subordinate CA’s Private Key corresponding to the Public Key in the Certificate suffered a Key Compromise or no longer complies with the requirements of Section 6.1.5 and Section 6.1.6.
+3.	OATI obtains evidence that the Certificate was misused.
+4.	OATI is made aware that the Certificate was not issued in accordance with or that the Subordinate CA has not complied with this CPS or the CA/B Forum TLS Baseline Requirements.
+5.	OATI determines that any of the information appearing in the Certificate is inaccurate or misleading.
+6.	OATI or Subordinate CA ceases operations for any reason and has not made arrangements for another CA to provide revocation support for the Certificate.
+7.	OATI’s or Subordinate CA’s right to issue Certificates under this CPS or the CA/B Forum TLS Baseline Requirements expires or is revoked or terminated, unless CA/B Forum TLS Baseline Requirements has made arrangements to continue maintaining the CRL Repository. 
+8.	Revocation is required by the OATI’s CPS. 
 
 OATI specifically reserves the right to revoke any OATI webCARES Digital Certificate issued by
 the OATI webCARES system for any issue relating to security or other national interest or
@@ -1499,15 +1486,7 @@ purposes.
 
 ### 4.9.2 Who Can Request Revocation
 
-An End Entity may request revocation of his/her/its OATI webCARES Digital Certificate at any
-time for any reason. The request may be made to the End Entity’s SO or to the OATI Help Desk.
-SOs may request revocation of a certificate within their Organization as well. This can be done
-via the OATI webCARES GUI or via email submittal of a revocation request to OATI Help
-Desk. If the revocation request is sent to the OATI Help Desk, the request must be submitted to
-OATI via the webCARESSupport@oati.net email address. Within 24 hours after receiving the
-revocation request, the OATI Help Desk will begin an investigation request for
-revocation, and decide whether revocation or other appropriate action is warranted based on
-at least the following criteria:
+An End Entity may request revocation of his/her/its OATI webCARES Digital Certificate at any time for any reason. The request may be made to the End Entity’s SO or to the OATI Help Desk.  SOs may request revocation of a certificate within their Organization as well.  This can be done via the OATI webCARES GUI or via email submittal of a revocation request to the OATI Help Desk. If the revocation request is sent to the OATI Help Desk, the request must be submitted to OATI via the webCARESSupport@oati.net email address. Within 24 hours after receiving the revocation request, the OATI Help Desk will begin an investigation request for revocation, and decide whether revocation or other appropriate action is warranted based on at least the following criteria:
 
 1. The nature of the reported problem.
 2. The consequences of revocation (direct and collateral impacts to Subscribers and Relying
@@ -1540,15 +1519,11 @@ See Section 4.9.2.
 
 ### 4.9.4 Revocation Request Grace Period
 
-No stipulation, but OATI will take action to revoke the certificate if it has not been completed
-within the timeframes noted above.
+There is no grace period for a revocation request.  Certificate revocation must be executed as soon as the circumstances requiring revocation (as outlined in Section 4.9.1) are identified and confirmed.  
 
 ### 4.9.5 Time Within Which CA Must Process the Revocation Request
 
-OATI shall process revocation requests in accordance with the CA/Browser Forum Baseline
-Requirements. If it is determined that revocation is necessary, the revocation request shall be
-processed in accordance with Section 4.9.1. If deemed necessary, the report will be forwarded
-to law enforcement authorities.
+OATI shall process revocation requests in accordance with the CA/Browser Forum Baseline Requirements and as stated within this CPS. If it is determined that revocation is necessary, the revocation request shall be processed in accordance with Section 4.9.1.  If deemed necessary, the report will be forwarded to law enforcement authorities.
 
 ### 4.9.6 Revocation Checking Requirements for Relying Parties
 
@@ -1569,6 +1544,10 @@ CRLs will continue to be issued until one of the following occurs:
 revoked; OR
 - The corresponding Subordinate CA Private Key is destroyed.
 
+For CA Certificates, OATI: 
+- Updates and publishes a new CRL every one (1) month which is valid for three (3) months.
+- Updates and publishes a new CRL within twenty-four (24) hours after recording a Certificate as revoked. 
+
 ### 4.9.8 Maximum Latency for CRLs
 
 OATI does not impose a maximum latency for its CRLs. Generally, CRLs are published to the
@@ -1576,8 +1555,7 @@ Repository within a few minutes of being generated.
 
 ### 4.9.9 Online Revocation/Status Checking Availability
 
-OATI webCARES does not support Online Certificate Status Protocol (OCSP) services of this
-hierarchy.
+OATI webCARES does not support Online Certificate Status Protocol (OCSP) services for this hierarchy.
 
 Revocation status for all OATI webCARES Digital Certificates SHALL be determined exclusively
 through CRLs published by OATI.
@@ -1624,15 +1602,19 @@ Not applicable - OATI webCARES does not permit certificate suspension.
 
 ### 4.10.1 Operational Characteristics
 
-See Section 4.9.9.
+Revocation entries on a CRL Response shall not be removed until after the Expiry Date of the revoked Certificate.
 
 ### 4.10.2 Service Availability
 
-See Section 4.9.9.
+OATI shall operate and maintain its CRL with resources sufficient to provide a response time of ten seconds or less under normal operating conditions. 
+
+OATI shall maintain an online 24x7 Repository that application software can use to automatically check the current status of all unexpired Certificates issued by OATI. 
+
+OATI shall maintain a continuous 24x7 ability to respond internally to a high-priority Certificate Problem Report, and where appropriate, forward such a complaint to law enforcement authorities, and/or revoke a Certificate that is the subject of such a complaint.
 
 ### 4.10.3 Operational Features
 
-See Section 4.9.9.
+No stipulation. For operational characteristics related to certificate status availability, checking, and reporting, see Section 4.9 and Section 4.10.1.
 
 ## 4.11 End of Subscription
 
@@ -1645,7 +1627,7 @@ terminating services.
 
 ## 4.12 Key Escrow and Recovery
 
-OATI does not conduct key escrow with a third party. This section is not applicable to OATI.
+OATI does not conduct key escrow for subscriber private keys.  OATI root/issuing private keys are managed via strict multi-person control in HSMs.   
 
 ### 4.12.1 Key Escrow and Recovery Policy and Practices
 
@@ -1687,16 +1669,7 @@ This Active/Active configuration provides outstanding availability and reliabili
 maintenance can be performed on any server or network device without affecting uptime of
 the application.
 
-By linking two locations into one virtual Data Center through multiple redundant fiber links,
-infrastructure functions are dispersed to optimize best use of equipment. In an Active/Active
-configuration, two production level Data Centers at geographically dispersed locations are
-available for prompt shifting between sites to optimize the highest available hardware and
-network assets. All database, application, and web servers are configured as four-node
-clusters. This configuration results in no data loss in the event of a site failure. Server load
-balancing is done via an intelligent appliance that uses health probes to determine the load
-and health of a server and perform concurrent connections calculations. Using these metrics,
-the appliance directs traffic to the server that will handle the request most efficiently and in
-the shortest time.
+By linking two locations into one virtual Data Center through multiple redundant fiber links, infrastructure functions are dispersed to optimize best use of equipment. In an Active/Active configuration, two production level Data Centers at geographically dispersed locations are available for quickly shifting between sites to optimize the highest available hardware and network assets. All database, application, and web servers are configured as four-node clusters. This configuration results in no data loss in the event of a site failure. Server load balancing is done via an intelligent appliance that uses health probes to determine the load and health of a server and perform concurrent connections calculations. Using these metrics, the appliance directs traffic to the server that will handle the request most efficiently and in the shortest time.
 
 #### 5.1.1.2 OATI Server Virtualization
 
@@ -1718,29 +1691,15 @@ The computer hardware, software, servers, and procedures used by OATI webCARES C
 a reasonable level of availability and reliability while maintaining a secure environment in
 enforcement of the OATI security policies and procedures.
 
-The OATI webCARES infrastructure is located within OATI Data Centers. Physical access to the
-Data Centers is secured by multi-layered security. Access to the Data Centers is secured with
-biometrics, in addition to proximity card access controls.
+The OATI webCARES infrastructure is located within OATI Data Centers. Physical access to the Data Centers is secured by multi-layered security including video surveillance and alarming. Access to the Data Centers is secured with biometrics, in addition to proximity card access controls.
 
-Access authority is granted to OATI employees on a need basis only in accordance with OATI
-written processes and procedures. All access points are integrated into the OATI Data Center
-monitoring and alarm systems, which provide alarming notification both to OATI employees and
-a third party monitoring company in the event of unauthorized access. All OATI employees must
-display official OATI pictured security badges and use these badges to gain entrance beyond
-designated visitor areas of the OATI facilities.
+Access authority is granted to OATI employees on a needed basis only in accordance with OATI written processes and procedures. All access points are integrated into the OATI Data Center monitoring and alarm systems, which provide alarming notification both to OATI employees and a third party monitoring company in the event of unauthorized access. All OATI employees must display official OATI pictured security badges and use these badges to gain entrance beyond designated visitor areas of the OATI facilities. 
 
-The physical location of the OATI webCARES infrastructure is within a Faraday Cage which is
-located within a production level Data Center environment, additionally secured within a six
-walled locked environment. An access log to the OATI webCARES CA is maintained and
-periodically inspected. The OATI webCARES CA is supported by redundant power and cooling.
-In the event commercial power is interrupted, on site generation will provide sufficient
-uninterrupted power.
+The physical location of the OATI webCARES infrastructure is within a Faraday Cage which is located within a production level Data Center environment, additionally secured within a six walled locked environment.  The OATI webCARES CA is supported by redundant power and cooling.  In the event commercial power is interrupted, on site generation will provide sufficient uninterrupted power.
 
-Gaining physical access to the cryptographic module requires a minimum of two OATI Trusted
-Employees in order to open the Faraday Cage. These enclosures protect from High Altitude
-Electromagnetic Pulse as well as Intentional Electromagnetic Interference attacks.
+Gaining physical access to the cryptographic module requires a minimum of two OATI Trusted Employees in order to open the Faraday Cage. These enclosures protect from High Altitude Electromagnetic Pulse as well as Intentional Electromagnetic Interference attacks. 
 
-OATI webCARES physical access logs (paper and electronic) shall be reviewed at least quarterly.
+OATI webCARES physical access logs (paper and electronic) shall be maintained and reviewed at least quarterly.
 
 ### 5.1.3 Power and Air Conditioning
 
@@ -1906,9 +1865,8 @@ role separation and restricted access.
 	- View and maintain CA system archives and audit logs
 - Auditor
 	- Authorized to maintain audit logs.
-	- Perform or oversee internal compliance audits to ensure that the CA is operating in
-accordance with its CPS.
-	- Perform the duties of an AO as defined in the OATI webCARES CPS.
+	- Perform or oversee internal compliance audits to ensure that OATI is operating in accordance with this CPS.
+	- Perform the duties of an AO as defined in this CPS.
 - Operator
 	- Authorized to perform system backup and recovery.
 	- Other routine operation of CA equipment.
@@ -1945,16 +1903,9 @@ established to guarantee role separation.
 
 ### 5.3.1 Qualifications, Experience, and Clearance Requirements
 
-Only trained personnel are given authority to access Production Systems. Upon employment, a
-background check is conducted and access to Production Systems is only provided following
-completion of a training course and a successful background check. All access to Production
-Systems requires two approvals — one by a project manager and another by an IT Director. In
-addition, all Production access activity is recorded for audit purposes.
+Only trained personnel are given authority to access Production Systems. Upon employment, a background check is conducted and access to Production Systems is only provided following completion of a training course and a successful background check. All access to Production Systems requires two approvals — one by a manager and another by an IT Manager. In addition, Production activity is recorded/logged for audit purposes.
 
-Staff must have proper training, clean background checks, a demonstrated functional need for
-the access, and undergo a corporate authorization process, called a PAR, in order to receive
-physical access to any OATI webCARES equipment. The PAR system requires manager,
-President, and Security System Administrator approval prior to access being granted.
+Staff must have proper training, clean background checks, a demonstrated functional need for the access, and undergo a corporate authorization process, called a Physical Access Request (PAR), in order to receive physical access to any OATI webCARES equipment.  The PAR system requires manager, President, and Security System Administrator approval prior to access being granted.
 
 ### 5.3.2 Background Check Procedures
 
@@ -2112,9 +2063,9 @@ assessment of threats and vulnerabilities. The assessment includes:
 - Identifying foreseeable internal and external threats that could result in unauthorized
 access, disclosure, misuse, alteration, or destruction of any Certificate Data or Certificate
 Management Processes.
-	- Assessing the likelihood and potential damage of these threats, taking into consideration
+- Assessing the likelihood and potential damage of these threats, taking into consideration
 the sensitivity of the Certificate Data and Certificate Management Processes.
-	- Assessing the sufficiency of the policies, procedures, information systems, technology,
+- Assessing the sufficiency of the policies, procedures, information systems, technology,
 and other arrangements that OATI has in place to counter such threats.
 
 ## 5.5 Records Archival
@@ -2143,18 +2094,30 @@ Data to be archived include (at a minimum):
 - All changes to trusted Public Keys
 - All Private Key relevant messages that are received by the system
 - And others as specified in WebTrust for CAs, CA/B Forum BRs, NAESB WEQ-012 or other
-applicable requirements
+applicable requirements such as:
+  - Documentation related to the security of their Certificate Systems, Certificate Management Systems, Root CA Systems, and Delegated Third Party Systems 
+  - Documentation related to their verification, issuance, and revocation of certificate requests and Certificates
 
 ### 5.5.2 Retention Period for Archive
 
-Data will be archived for time periods required by applicable standards and regulatory
-stipulations including, but not limited to, WebTrust for CAs, CA/B Forum BRs, and NAESB WEQ-
-012 and based upon a risk assessment performed to determine the appropriate length of
-retention time, which shall be no less than seven years.
+OATI and any Delegated Third Party (if engaged in the future), shall retain archived records according to the following retention schedules:
+1.	Two (2) Year Retention from Record Creation
+High-volume environmental, system, and network infrastructure logs shall be retained for a minimum of two (2) years from the exact date and time the log entry or record was created. This category applies explicitly to:
+    - Network security logs, including firewall and router traffic history, packet inspections, and blocked connection events.
+    - System-level and security monitoring logs (SIEM, syslog, and OS event viewer feeds) tracking infrastructure performance, system crashes, and hardware/software changes.
+    - Physical and logical access control records, including facility entry logs and successful or unsuccessful administrator login attempts (SSH, RDP, console access) to Certificate Systems.
+2.	Two (2) Year Retention from Certificate Ceasing to be Valid
+Operational and technical lifecycle tracking logs directly related to end-entity certificate processing shall be retained for a minimum of two (2) years after the associated certificate has expired or has been revoked. This category applies explicitly to:
+    - All database transaction logs documenting certificate requests, application updates, issuance events, and revocation processing.
+    - Critical CA Key Lifecycle records, which must be retained for a minimum of two (2) years after the expiration, revocation, or formal destruction of the final certificate signed by that specific CA key pair.
+3.	Seven (7) Year Retention (Corporate, Identity, and Legal Logs)
+To protect the ecosystem against fraud, satisfy statutory limitations, and comply with root program accountability mandates, the following critical record types shall be retained for a minimum of seven (7) years:
+    - Identity and domain validation documentation, including all evidence, legal registrations, and third-party validation sources used to satisfy applicant verification.
+    - Signed Subscriber Agreements, Terms of Use acknowledgments, and related contractual business documentation.
+    - Financial and corporate accounting audit data related to certificate transactional lifecycles.
+    - Fraud prevention and high-risk screening logs, including historical records of previously rejected certificate requests, suspicious domain blocks, or anti-phishing flags.
 
-OATI shall retain all documentation relating to certificate requests and the verification thereof,
-and all Certificates and revocation thereof, for at least seven years after any Certificate based
-on that documentation ceases to be valid.
+The 7-year retention period for identity and validation documentation begins precisely on the date the corresponding certificate completely ceases to be valid (either via expiration or permanent revocation).
 
 ### 5.5.3 Protection of Archive
 
@@ -2166,33 +2129,46 @@ the OATI webCARES archives.
 
 OATI does not archive Subscriber Private Keys.
 
+#### 5.5.3.1	Technical Protection and Access Control
+OATI enforces strict logical and physical access controls to protect the archive repository against unauthorized modification, substitution, deletion, or premature destruction.
+- Logical Controls: Archive data stored on electronic media is protected using strong role-based access control (RBAC). Access to archive systems requires Multi-Factor Authentication (MFA) and is limited strictly to authorized individuals serving in designated Trusted Roles. Plaintext write or overwrite privileges to the finalized archive are systematically blocked.
+- Cryptographic Integrity: Electronic archive records, including database snapshots and system audit logs, are cryptographically protected. OATI utilizes digital signatures, cryptographic hashes, or hardware-enforced write-once-read-many (WORM) storage media to guarantee data integrity and provide clear evidence of any tampering attempts.
+
+#### 5.5.3.2	Physical Protection and Segregation
+Physical media containing archive data—such as backup tapes, encrypted removable drives, or physical ceremony logs—are classified as highly sensitive assets.
+- Dual-Custody Storage: Physical archive media is stored in within a faraday cage (see Section 5.1.2) under dual-custody located within access-controlled physical perimeters. Accessing physical archive media requires the simultaneous presence of at least two (2) authorized individuals holding distinct Trusted Roles.
+- Geographic Redundancy: To protect against catastrophic localized disasters, hardware failures, or environmental hazards, OATI maintains a full copy of the archive at secondary location owned and managed by OATI with the same security protocols in place. 
+
+#### 5.5.3.3	Separation of Duties
+No single individual is permitted to modify, relocate, or destroy archive records. Administrators may view and verify archive files but lack the technical privileges required to alter historical database logs.
+
 ### 5.5.4 Archive Backup Procedures
 
-OATI webCARES archives are backed up using a mechanism specific to the HSMs that OATI
-owns. This process ensures that these archives never leave a FIPs validated HSM, and is done
-so using a FIPs certified backup/transfer process. These backups occur in two different ways:
-
-1. OATI uses multiple active HSM devices. These devices are all online at any time. These
-    devices use an internal synchronization method to ensure that all Private Keys are present
-    in every device. These devices are stored within the OATI webCARES enclosures in the OATI
-    Data Centers.
-2. OATI uses multiple “HSM Backup” devices. These devices are offline at all times (except
-    when backups are being done). These devices are stored within the OATI webCARES
-    enclosures in the OATI Data Centers.
+OATI routinely creates backup copies of its archive records. OATI maintains redundant data domains which automatically mirror in real-team located at geographically separate physically secure facilities that OATI owns. Access to archive backups is strictly limited to authorized personnel acting in trusted roles under multi-person control configurations. Backup archives are encrypted to maintain confidentiality and integrity during transit and storage.  
 
 ### 5.5.5 Requirements for Time-Stamping of Records
 
-OATI webCARES archives are automatically time-stamped as they are created. Please see
-Section 6.8.
+OATI webCARES archives are automatically time-stamped as they are created.
+
+OATI webCARES synchronizes with at least one hardware NTP time source to maintain accuracy and chronological integrity.
+
+Applied time-stamps and their corresponding archive records cannot be modified or tampered with improperly.
 
 ### 5.5.6 Archive Collection System (Internal or External)
 
-OATI utilizes internal systems to collect OATI webCARES archives.
+OATI utilizes internal systems to collect OATI webCARES archives.  Data collection, formatting, and transfer into the archive happen automatically on a periodic basis depending on the size of the logs.  Data is immediately sent to collectors near real-time; then transferred to a data domain which then replicates to a secondary data domain.
 
 ### 5.5.7 Procedures to Obtain and Verify Archive Information
 
-Only OATI webCARES Administrators have access to view the OATI webCARES archives. Archived
-keys SHOULD only be accessed when requested by an internal or external auditor.
+Only OATI webCARES Administrator Trusted Roles have access to view the OATI webCARES archives (data domain).  Permissions for access are granted follow OATI access control policies which include an acceptable and current background check, as well as completing the development and production training programs. Once these requirements are met, the employee requests access to specific Systems; this is then reviewed and if acceptable, approved by two levels of management. This access is granted on a need-to-know, per project basis.  
+
+The archive can be viewed by the webCARES Administrator Trusted Roles; modification and deletion are not permitted by the devices.  When the archive data is moved from the production servers, it is secured by a client authentication certificate which signs the data.  When the archive is written to the data domain, it is verified to ensure integrity remains in place.  The signature is logged for audit trail purposes and would notify if the archive data was modified in transfer.
+
+Every event involving the lookup, physical removal, or logical extraction of archive data is strictly monitored and recorded. OATI generates an immutable audit log capturing:
+- The date and time of the retrieval request and execution.
+- The names, signatures, and Trusted Roles of all personnel involved.
+- The specific archive segments, serial numbers, or datasets accessed.
+- The explicit justification or tracking ID for the retrieval.
 
 ## 5.6 Key Changeover
 
@@ -2213,13 +2189,7 @@ within a reasonable time.
 
 ### 5.7.1 Incident and Compromise Handling Procedures
 
-OATI has established Incident Response and Business Continuity Plans that include various
-industry requirements and best practices. These plans are reviewed, tested and training is
-provided to staff at least annually. The OATI Incident Response Team is responsible for notifying
-customers during any security incident that affects customers’ use of OATI services and
-products and will determine when the proper time to send notification will be based on
-criticality. Multiple methods of notifications will be used: telephone, email, outage
-announcements from the OATI webSupport™ system, postings on OATI applications, etc.
+OATI has established Incident Response and Business Continuity Plans that include various industry requirements and best practices.  The plans are incorporated into annual third-party examinations (i.e. SOC 2).  These plans are reviewed, tested and training is provided to staff at least annually. The OATI Incident Response Team is responsible for notifying customers during any security incident that affects customers’ use of OATI services and products and will determine when the proper time to send notification will be based on criticality. Multiple methods of notifications may be used: telephone, email, postings in OATI webCARES, etc. 
 
 #### 5.7.1.1 Incident Response and Disaster Recovery Plans
 
@@ -2230,9 +2200,7 @@ Response Plan.
 
 #### 5.7.1.2 Mass Revocation Plans
 
-OATI maintains a comprehensive and actionable plan in the event of mass revocation. Testing
-of the mass revocation plan is completed annually and lessons learned is incorporated into the
-plan to improve readiness.
+OATI maintains a comprehensive and actionable plan in the event a mass revocation of digital certificates is necessary. Testing of the mass revocation plan is completed annually and lessons learned is incorporated into the plan to improve readiness.
 
 ### 5.7.2 Computing Resources, Software, and/or Data Are Corrupted
 
@@ -2251,6 +2219,7 @@ possible, giving priority to the generation of a new Key Pair.
 Please see Sections 4.9 and 5.7.1.
 
 ### 5.7.4 Business Continuity Capabilities After a Disaster
+Please see Section 5.1 regarding OATI’s capabilities to ensure business continuity.
 
 As part of the OATI Business Continuity Plan, OATI webCARES will notify Subscribers in the event
 of a disaster that damages OATI and destroys all copies of OATI signature keys.
@@ -2260,8 +2229,19 @@ of a disaster that damages OATI and destroys all copies of OATI signature keys.
 In the event OATI webCARES ceases operation, Subscribers will be given as much advance notice
 as circumstances permit prior to OATI revoking all OATI webCARES Digital Certificates.
 
-OATI webCARES will provide 90 days advance notice prior to voluntary withdrawal from any
-official certification program.
+In the event OATI webCARES elects to terminate its PKI, OATI will execute a structured termination plan designed to minimize disruption to Subscribers and Relying Parties.  The Plan will include details on any Successor responsibilities/duties, necessary certificate revocation plans, making available final CRLs, necessary key destruction activities as well as securely preserving and transferring archives and logs to a reliable third-party archive or legal entity.
+
+Before terminating operations, OATI shall:
+1.	Provide a minimum of ninety (90) days advance notice of termination to all affected Subscribers, Relying Parties, and Application Software Suppliers.
+2.	Halt the issuance of new certificates and provide guidance to Subscribers to transition to alternative trusted providers.
+3.	Transfer all operational records, validation documentation, and event logs to a qualified successor entity or a secure archive to ensure compliance with document retention requirements.
+4.	Revoke all remaining unexpired certificates on the specified termination date and publish a final, definitive CRL.
+5.	Securely destroy all CA Private Keys to prevent unauthorized usage, and document the completion of the destruction process.
+
+If an RA's authority is terminated, OATI will immediately revoke the RA's access privileges and assume or reassign any outstanding RA duties to guarantee continuity of validation practices.
+
+OATI webCARES will provide at least 90 days advance notice prior to voluntary withdrawal from any official certification program.
+
 
 # 6. Technical Security Controls
 
@@ -2272,8 +2252,7 @@ official certification program.
 Subscriber keys are generated by the company SO. This key generation is done in the
 Subscriber’s browser software.
 
-CA keys are generated by OATI. This key generation is done within an HSM. A Key Generation
-Script shall be prepared and followed.
+CA private keys are generated by OATI within inside FIPS 140-2 Level 3 (or higher) HSMs meeting section 6.2.1 requirements.  A Key Generation Script shall be prepared, followed, and witnessed by an auditor. 
 
 #### 6.1.1.1 Witnesses
 
@@ -2306,12 +2285,12 @@ OATI shall reject a certificate request if any of the following conditions are m
 4. OATI has previously been notified that the Applicant’s Private Key has suffered a Key Compromise, using OATI’s procedure for revocation request as described in Section 4.9.3 and Section 4.9.12.
 5. The Public Key corresponds to an industry-demonstrated weak Private Key. At least the following precautions SHALL be implemented:
 	
-    - In the case of Debian weak keys vulnerability (https://wiki.debian.org/SSLkeys), OATI SHALL reject all keys found at https://github.com/cabforum/Debian-weak-keys/ for each key type (e.g. RSA, ECDSA) and size listed in the repository. For all other keys meeting the requirements of Section 6.1.5, with the exception of RSA key sizes greater than 8192 bits, OATI SHALL reject Debian weak keys.
+    - In the case of Debian weak keys vulnerability (https://wiki.debian.org/SSLkeys), OATI shall reject all keys found at https://github.com/cabforum/Debian-weak-keys/ for each key type (e.g. RSA, ECDSA) and size listed in the repository. For all other keys meeting the requirements of Section 6.1.5, with the exception of RSA key sizes greater than 8192 bits, OATI shall reject Debian weak keys.
 
-    - In the case of ROCA vulnerability, OATI SHALL reject keys identified by the tools available at https://github.com/crocs-muni/roca or equivalent.
+    - In the case of ROCA vulnerability, OATI shall reject keys identified by the tools available at https://github.com/crocs-muni/roca or equivalent.
 
 	- In the case of Close Primes vulnerability (https://fermatattack.secvuln.info/), OATI
-       SHALL reject weak keys which can be factored within 100 rounds using Fermat’s
+       shall reject weak keys which can be factored within 100 rounds using Fermat’s
        factorization method.
 
 Suggested tools for checking for weak keys can be found at https://cabforum.org/resources/tools/.
@@ -2335,7 +2314,9 @@ communicated Private Key.
 
 ### 6.1.3 Public Key Delivery to Certificate Issuer
 
-All subscriber-CA communications are delivered over a secure online TLS connection (session).
+Public keys are delivered to the Certificate Issuer by the Subscriber through an automated or manual CSR process using secure online mechanisms.
+1.	ACME Protocol (Automated): For automated issuance, Subscribers deliver their public keys encapsulated within a digitally signed CSR over a secure TLS connection using the ACME protocol (RFC 8555). The ACME client authenticates the request using the Subscriber’s ACME account key pair, and the transport layer is protected via HTTPS.
+2.	Manual/Alternative Methods: For non-ACME issuance, all Subscriber-to-CA communications, including CSR submission, are delivered over a secure, authenticated online TLS connection (session) via the CA’s administrative portal or API.
 
 ### 6.1.4 CA Public Key Delivery to Relying Parties
 
@@ -2343,8 +2324,11 @@ CA Certificates, including Public Keys, are available for download from the Repo
 
 ### 6.1.5 Key Sizes
 
-OATI webCARES Server Root CA and OATI webCARES Server Issuing CA 2026 issue OATI webCARES
-Digital Certificates using a 4096 bit RSA key with Secure Hash Algorithm 2 (SHA-512).
+For Root and Subordinate CA Certificates: 
+- The OATI Root and Subordinate CA certificates utilize a 4096-bit RSA key paired with the Secure Hash Algorithm 2 (SHA-512) to ensure cryptographic strength and security.
+For Subscribers Certificates: 
+- OATI webCARES Digital Certificates utilize a 2048 bit RSA key with Secure Hash Algorithm 2 (SHA-512).
+All RSA key pairs shall have a modulus size, in bits, evenly divisible by 8.
 
 ### 6.1.6 Public Key Parameters Generation and Quality Checking
 
@@ -2366,16 +2350,7 @@ uses: Server Authentication.
 
 ### 6.2.1 Cryptographic Module Standards and Controls
 
-OATI webCARES cryptographic modules for its CA Private Keys are validated to FIPS 140-2 Level
-3 standards. Subscribers must protect their Private Keys in accordance with the applicable
-guidelines on Private Key protection. Subscribers are responsible for protecting the Private Key
-associated with the Public Key in the Subscriber’s OATI webCARES Digital Certificate at all
-times. Subscribers must promptly notify their OATI webCARES SO, or OATI Help Desk, upon
-suspicion of loss or compromise of their Private Keys (see Section 4.9). If OATI or any of its
-designated RAs become aware that a Subscriber’s Private Key has been communicated to an
-unauthorized person or an organization not affiliated with the Subscriber, then OATI will revoke
-all certificates that include the Public Key corresponding to the communicated Private Key (see
-Section 4.9).
+OATI webCARES cryptographic modules for its CA Private Keys are validated to FIPS 140-2 Level 3 standards (or higher).  Subscribers must protect their Private Keys in accordance with the applicable guidelines on Private Key protection.  Subscribers are responsible for protecting the Private Key associated with the Public Key in the Subscriber’s OATI webCARES Digital Certificate at all times.  Subscribers must promptly notify their OATI webCARES SO, or OATI Help Desk, upon suspicion of loss or compromise of their Private Keys (see Section 4.9).  If OATI or any of its designated RAs become aware that a Subscriber’s Private Key has been communicated to an unauthorized person or an organization not affiliated with the Subscriber, then OATI will revoke all certificates that include the Public Key corresponding to the communicated Private Key (see Section 4.9).  
 
 ### 6.2.2 Private Key (n out of m) Multi-Person Control
 
@@ -2463,11 +2438,7 @@ webCARES Administrator disables the use of the Private Key in the OATI webCARES 
 interface. This is done within the standard OATI webCARES change management and approval
 process.
 
-OATI Key Pairs have a lifetime of up to 20 years and are retired from service thereafter. OATI
-will retire the Root Certificate in a manner that renders the Root Certificate, and all OATI
-webCARES Digital Certificates issued under it, useless. OATI has the ability to stop issuing OATI
-webCARES Digital Certificates at any time, thereby rendering the CA retired before the Key Pair
-lifetime.
+OATI CA Key Pairs are managed and retired in accordance with applicable CA/Browser Forum Baseline Requirements, Root Program requirements, and OATI’s key lifecycle procedures. OATI will retire the Root Certificate in a manner that renders the Root Certificate, and all OATI webCARES Digital Certificates issued under it, useless. OATI has the ability to stop issuing OATI webCARES Digital Certificates at any time, thereby rendering the CA retired before the Key Pair lifetime.
 
 ### 6.2.10 Method of Destroying Private Key
 
@@ -2481,16 +2452,22 @@ as dual control and ensuring that all activation data is destroyed.
 OATI webCARES cryptographic modules for its CA Private Keys are validated to FIPS 140-2 Level
 3 standards.
 
+The Root CA Private Key operations, including key generation, certificate signing, and certificate revocation list (CRL) signing, MUST be executed exclusively within hardware cryptographic modules that are certified to meet or exceed the security ratings specified by the CA/Browser Forum Baseline Requirements and root browser program mandates.
+
 ## 6.3 Other Aspects of Key Pair Management
 
 ### 6.3.1 Public Key Archival
 
-No stipulation.
+OATI archives both CA and subscriber public keys in the main OATI webCARES database.
+
+OATI archives copies of public keys executed under this CPS as a standard component of its certificate lifecycle recording. This includes Root CA public keys, Subordinate CA public keys, and Subscriber public keys. Public keys are archived embedded within their issued certificates and are stored in back-up database systems with integrity controls to prevent unauthorized modification. Archived data is retained for a minimum period of seven (7) years following certificate expiration or revocation.
 
 ### 6.3.2 Certificate Operational Periods and Key Pair Usage Periods
 
-The Validity Period of an OATI webCARES Server(end-entity) Authentication Certificate SHALL NOT exceed the maximum period permitted by the applicable CA/Browser Forum Baseline Requirements in effect at the time of certificate issuance.
+The Validity Period of an OATI webCARES Server (end-entity) Authentication Certificate SHALL NOT exceed the maximum period permitted by the applicable CA/Browser Forum Baseline Requirements in effect at the time of certificate issuance.
+
 For purposes of calculating the Certificate validity period, OATI measures one day as exactly 86,400 seconds. Any period of time greater than 86,400 seconds, including fractional seconds and/or leap seconds, is considered an additional day.
+
 OATI applies the following maximum validity periods for publicly trusted Server Certificates:
 - For Certificates issued on or after March 15, 2026 and before March 15, 2027, the Validity Period SHALL NOT exceed 200 days.
 - For Certificates issued on or after March 15, 2027 and before March 15, 2029, the Validity Period SHALL NOT exceed 100 days.
@@ -2500,16 +2477,29 @@ OATI applies the following maximum validity periods for publicly trusted Server 
 
 ### 6.4.1 Activation Data Generation and Installation
 
-OATI HSM PIN codes are generated by the OATI webCARES Administrator Trusted Role, and
-distributed to key holders as part of the HSM key holder distribution process.
+Activation data for the Root CA private keys is generated during a formal, physically secured Key Generation Ceremony. The Root CA private keys are hosted exclusively on FIPS 140-2 Level 3 validated HSMs. Activation data is generated with sufficient cryptographic strength and complexity to protect Private Keys against loss, modification, or unauthorized disclosure.  The activation data required to unlock, initialize, and restore these cryptographic modules consists of multi-person control authentication splits, implemented via the HSM M-of-N split-knowledge mechanism utilizing physical, color-coded cryptographic keys (HSM Keys). Activation data is never transmitted over an unencrypted network or stored in plaintext on local workstations or shared network drives.
+
+The generation of this activation data requires the simultaneous physical presence and active participation of distinct, non-colluding Trusted Roles. No single individual is capable of generating or possessing the complete set of activation materials required to unlock the Root CA private keys. OATI HSM PIN codes are generated by the OATI webCARES Administrator Trusted Role, and distributed to key holders as part of the HSM key holder distribution process.
+
+Installation and loading of activation data occur entirely within dedicated, access-controlled PKI secure perimeters. HSM keys are provided only to delegated Trusted Roles following OATI review and approval procedures.  Specific training and acknowledgement is required and multiple levels of approval before a Trusted Role is assigned a key.  The key holders agree to follow strict security policies to ensure their keys remain secured.  The keys are reviewed monthly by internal audit team members to ensure they are accounted for.  
 
 ### 6.4.2 Activation Data Protection
 
-Data used to unlock Private Keys is protected from disclosure by a combination of cryptographic
-and physical access control mechanisms at each level of assurance associated with the
-activation of the cryptographic module. Mechanisms include, but are not limited to, requiring
-password memorization and the temporary lock out and/or termination of the application after
-10 failed login attempts.
+Data used to unlock Private Keys is protected from disclosure by a combination of cryptographic and physical access control mechanisms at each level of assurance associated with the activation of the cryptographic module.  Mechanisms include, but are not limited to, requiring password memorization and the temporary lock out and/or termination of the application after 10 failed login attempts.
+- No Unencrypted Storage: Activation data (PIN/password) is never stored in plaintext or on the same system as the cryptographic module.
+- Custodian Responsibility: Assigned key holders are bound by security policies to never share or write down their components.
+- Brute-Force Protections: Hardware devices zeroize after a specific number of consecutive failed activation attempts.
+
+Activation data for the Root CA private keys, including Thales Luna PED Keys and their corresponding PINs, shall be protected from unauthorized disclosure, modification, loss, and unauthorized use utilizing strong physical and logical security controls. 
+
+#### 6.4.2.1	Physical Protection and Storage 
+Physical access to activation data keys is strictly restricted to designated Trusted Roles who have been formally assigned as key custodians. 
+
+#### 6.4.2.2	Cryptographic and Logical Protection 
+PINs required to unlock Luna PED Keys shall be memorized by the designated key custodians. Activation data PINs or unencrypted raw values shall never be stored in electronic format, hardcoded in configuration scripts, or transmitted across any network interface.
+
+#### 6.4.2.3	Distribution and Custody Separation 
+To satisfy CA/Browser Forum Baseline Requirements and root store guidelines regarding multi-party control, no single individual shall ever hold or have access to a sufficient number of activation data keys or PINs necessary to independently activate the Root CA cryptographic module. Custody of the activation keys shall be distributed among distinct, non-colluding trusted individuals who have passed rigorous background screening.
 
 ### 6.4.3 Other Aspects of Activation Data
 
@@ -2588,15 +2578,7 @@ documentation, and testing of applications. The OATI SDLC also describes the spe
 job functions throughout each step of the process. OATI has controls in place to address these
 items, and is audited against these controls.
 
-OATI Change Control and Configuration Management Procedures provide instructions governing
-methods in the Development non-Production and operational environment. OATI employs, at a
-minimum, two Environments per project (Development and Production). Changes are not made
-on Production Systems until they have been properly installed and tested on the Development
-System. OATI’s SDLC describes the procedures in place for the request and designing of new
-applications, enhancements, emergency changes, integration, development, deployment,
-documentation, and testing of applications. The OATI SDLC also describes the specific roles and
-functions throughout each step of the process. OATI has controls in place to address these
-items, and is audited against these controls.
+OATI Change Control and Configuration Management Procedures provide instructions governing methods in the Development non-Production and operational environment. OATI employs, at a minimum, two Environments per project (Development and Production). Changes are not made on Production Systems until they have been properly installed and tested on the Development System and granted approval to move to Production. OATI’s SDLC describes the procedures in place for the request and designing of new applications, enhancements, emergency changes, integration, development, deployment, documentation, and testing of applications. The OATI SDLC also describes the specific roles and functions throughout each step of the process. OATI has controls in place to address these items, and is audited against these controls.
 
 OATI’s Production Environment Authentication System is used for tracking code changes and
 manual data changes. In addition, all OATI applications include an audit trail which tracks the
@@ -2611,13 +2593,22 @@ and client authentication certificate.
 
 #### 6.6.1.3 Training
 
-Training is provided to Development teams on coding practices to be avoided, they are given
-techniques on how to implement selected functionality in a secure way. OATI also requires all
-personnel to undergo periodic Cyber Security training.
+Training is provided to Development teams on coding practices to be avoided, they are given techniques on how to implement selected functionality in a secure way.  OATI also requires personnel with elevated electronic or physical security permissions to undergo annual Cyber Security training.
+
+#### 6.6.1.4	Vendor and Software Validation
+Third-party hardware, commercial software components, and underlying operating systems are procured directly from authorized enterprise channels following OATI’s acquisition procedures for vetting vendors and performing risk reviews.
 
 ### 6.6.2 Security Management Controls
 
 See Section 6.6.1.
+
+Cryptographic operations, including CA Root and Issuing key generation and certificate signing, are executed exclusively within dedicated HSMs.  These devices are certified to FIPS 140-2 Level 3 (or higher).
+
+HSMs are shipping directly from the manufacturer using secure, trackable courier services and tamper-evident packaging.  Upon arrival, the packages are inspected for tampering and then put into a secure environment requiring multi-party control.
+
+Systems are hardened following industry best practices and OATI risk review.  Unnecessary services, protocols, ports, and default user accounts are disabled or removed.  Baseline configurations of software, operating systems, and network devices are followed and reviewed prior to implementation.
+
+OATI monitors implements automated performance and capacity monitoring for the webCARES application hosted in our environment, and proactively adds resources as needed to maintain required levels.
 
 ### 6.6.3 Lifecycle Security Controls
 
@@ -2625,12 +2616,14 @@ No stipulation.
 
 ## 6.7 Network Security Controls
 
-The OATI webCARES CA operates on a network of systems secured by multiple firewalls, virus
-and malware protection, and an intrusion detection system. Actions taken by OATI in response
-to attempted network attacks are recorded.
-
 OATI has implemented network security controls in conformance with the CA/B Baseline
 Network and Certificate System Security Requirements.
+
+OATI implements network security safeguards and controls designed to prevent unauthorized access, tampering, and denial-of-service attacks on systems and infrastructure.  
+
+The OATI webCARES CA operates on a network of systems secured by multiple firewalls, access control lists, virus and malware protection, and an intrusion detection system.  Actions taken by OATI in response to attempted network attacks are recorded.
+
+Root CA private keys are stored offline on air-gapped systems and are never attached to a network.  
 
 ### 6.7.1 Anti-Virus
 
@@ -2640,19 +2633,22 @@ once every week.
 ### 6.7.2 Vulnerability Remediation
 
 Based on an OATI assessment of risk, Critical vulnerabilities should be remediated within 15
-calendar days of initial detection, High vulnerabilities should be remediated within 30 calendar
-days of initial detection. Medium/Moderate and Low vulnerabilities are assessed and mitigation
-plans created within 90 days.
+calendar days of initial detection, High vulnerabilities should be remediated within 30 calendar days of initial detection. Medium/Moderate and Low vulnerabilities are assessed and mitigation plans created within 90 days.
+
+### 6.7.3	Firewalls
+Firewalls enforce a strict allow listing policy, disabling all network ports and protocols except those explicitly required for CA functionality.
+
+### 6.7.4	Encryption
+All communication of sensitive data within or to the CA infrastructure is encrypted and authenticated using secure protocols.
+
+### 6.7.5	Incident Response 
+Systems logs are continuously monitored for security events, and vulnerability scans are performed at least monthly. OATI maintains capability to rapidly disable certificate issuance in the event a security incident or intrusion is detected.
 
 ## 6.8 Time-Stamping
 
-The OATI webCARES system will time stamp and record actions taken on an OATI webCARES
-Digital Certificate. OATI will time stamp OATI webCARES Digital Certificate issuance, renewal,
-revocation, and expiration. In addition to time stamping actions taken on OATI webCARES
-Digital Certificates, the OATI webCARES system will time stamp CRLs. The OATI webCARES
-system will operate on CST.
+The OATI webCARES system will time stamp and record actions taken on an OATI webCARES Digital Certificate.  OATI will time stamp OATI webCARES Digital Certificate issuance, renewal, revocation, and expiration.  In addition to time stamping actions taken on OATI webCARES Digital Certificates, the OATI webCARES system will time stamp CRLs.  The OATI webCARES system will operate on CST.
 
-OATI webCARES will synchronize with at least one hardware NTP time source.
+OATI webCARES synchronizes with at least one hardware NTP time source to maintain accuracy and chronological integrity.
 
 # 7. Certificate and CRL Profiles
 
@@ -2681,7 +2677,7 @@ least 64 bits of output from a CSPRNG.
 
 - issuer: byte-for-byte identical to the encoded subject.
 
-- validity: 20 years.
+- validity: 20 years, though OATI limits the usage of key material to 15 years. 
 
 - subject: Present, NOT marked as critical, and contains at minimum the following:
 
@@ -2727,7 +2723,7 @@ least 64 bits of output from a CSPRNG.
 
 - issuer: byte-for-byte identical to the subject field. See Section 7.1.4.1.
 
-- validity: OATI ensures that our Issuing Authority certificates and associated private keys are limited to a maximum of four (4) years for Subscriber certificate signing.
+- validity: 6 years, though OATI limits usage of key material to 4 years.
 
 - subject: Present, NOT marked as critical, and contains at minimum the following:
 
@@ -2842,6 +2838,8 @@ keyEncipherment set.
 
 All other fields and extensions are set in accordance with RFC 5280.
 
+In accordance with the CA/Browser Forum Baseline Requirements, the notBefore field for Subscriber Certificates is backdated by 10 minutes relative to the actual creation time to mitigate potential relying party clock skew issues.
+
 OATI will not issue a certificate with extensions that do not apply in the context of the public
 Internet (such as an extKeyUsage value for a service that is only valid in the context of a
 privately managed network), unless:
@@ -2856,10 +2854,14 @@ least 64 bits of output from a CSPRNG.
 
 #### 7.1.2.5 Precertificates
 
-For purposes of clarification, a Precertificate, as described in RFC 6962 “Certificate
-Transparency,” shall not be considered to be a “certificate” subject to the requirements of
-RFC 5280 “Internet X.509 PKI Certificate and CRL Profile” under the CA/B Forum Baseline
-Requirements. OATI does not issue precertificates.
+For purposes of clarification, a Precertificate, as described in RFC 6962 “Certificate Transparency,” shall not be considered to be a “certificate” subject to the requirements of RFC 5280 “Internet X.509 PKI Certificate and CRL Profile” under the CA/B Forum Baseline Requirements.  
+
+OATI generates precertificate structures for Certificate Transparency logging in accordance with RFC 6962 and applicable CA/Browser Forum and Root Program requirements. Such precertificates are not provided to Subscribers as certificates and are used solely for the Certificate Transparency issuance process.
+
+OATI precertificates MUST contain the Precertificate Poison extension (OID: 1.3.6.1.4.1.11129.2.4.3). This extension MUST have an extnValue OCTET STRING which is exactly the hex‐encoded bytes 0500, the encoded representation of the ASN.1 NULL value, as specified in RFC 6962, Section 3.1.
+
+#### 7.1.2.6	Application of RFC 5280 
+For purposes of clarification, a Precertificate, as described in RFC 6962 - Certificate Transparency, shall not be considered to be a “certificate” subject to the requirements of RFC 5280 - Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile.
 
 ### 7.1.3 Algorithm Object Identifiers
 
@@ -2879,10 +2881,18 @@ identifier.
 The encoding for AlgorithmIdentifier for RSA keys is byte-for-byte identical with the following
 hex-encoded bytes: 300d06092a864886f70d0101010500.
 
+See section 6.1.5 Key Sizes.
+
 #### 7.1.3.2 Signature AlgorithmIdentifier
 
-All objects signed by a CA Private Key will conform to these requirements on the use of the
-AlgorithmIdentifier or AlgorithmIdentifier-derived type in the context of signatures.
+OATI utilizes the following signature algorithm object identifiers to sign certificates, precertificates, and CRLs. OATI explicitly prohibits the use of SHA-1 or MD5 for any publicly-trusted signature operation.
+- Algorithm Name:  sha512withRSAEncryption
+- Object Identifier (OID):  1.2.840.113549.1.1.13
+- Parameters:  The parameters must be explicitly present and must be encoded as an explicit NULL.
+
+No other encodings are permitted for these fields.
+
+All objects signed by a CA Private Key conform to these requirements on the use of the AlgorithmIdentifier or AlgorithmIdentifier-derived type in the context of signatures. 
 
 In particular, it applies to all of the following objects and fields:
 
@@ -2898,13 +2908,15 @@ No other encodings are permitted for these fields.
 
 ##### 7.1.3.2.1 RSA
 
-The encoding for AlgorithmIdentifier for RSA keys is byte-for-byte identical with the following
-hex-encoded bytes: 300d06092a864886f70d0101010500.
+The encoding for AlgorithmIdentifier for RSA keys is byte-for-byte identical with the following hex-encoded bytes: 
+
+Signature Algorithm: RSASSA-PKCS1-v1_5 with SHA-512 
+
+Encoding: 300d06092a864886f70d01010d0500
 
 ### 7.1.4 Name Forms
 
-This section details encoding rules that apply to all Certificates issued by the OATI webCARES
-CA.
+This section details encoding rules that apply to all Certificates issued by the OATI webCARES CA hierarchy listed in this CP/CPS.
 
 #### 7.1.4.1 Name Encoding/Issuer Information
 
@@ -2923,13 +2935,7 @@ Section 7.1, and including expired and revoked Certificates.
 
 #### 7.1.4.2 Subject Information – Subscriber Certificates
 
-By issuing the certificate, OATI represents that it followed the procedure set forth in this CPS
-to verify that, as of the certificate’s issuance date, all of the Subject Information was accurate.
-OATI does not issue certificates containing IP Addresses or Internal Names in the Subject
-Information. Subject attributes MUST NOT contain **only** metadata such as '.', '-', and ' ' (i.e.
-space) characters, and/or any other indication that the value is absent, incomplete, or not
-applicable. OATI Issuing CAs comply with the name forms detailed in RFC 5280 and the
-applicable CA/Browser Forum Baseline Requirements.
+By issuing the certificate, OATI represents that it followed the procedure set forth in this CPS to verify that, as of the certificate’s issuance date, all of the Subject Information was accurate. OATI does not issue certificates containing IP Addresses or Internal Names in the Subject Information.  Subject attributes MUST NOT contain only metadata such as '.', '-', and ' ' (i.e. space) characters, and/or any other indication that the value is absent, incomplete, or not applicable.  OATI does not issue certificates containing Domain Names that end in an IP Reverse Zone Suffix.  OATI Issuing CAs comply with the name forms detailed in RFC 5280 and the applicable CA/Browser Forum Baseline Requirements.
 
 ### 7.1.5 Name Constraints
 
@@ -2967,11 +2973,9 @@ See Section 7.1.2.
 
 #### 7.1.6.4 Subscriber Certificates
 
-A Certificate issued to a Subscriber MUST contain, within the Certificate’s certificatePolicies
-extension, one or more policy identifier(s) that are specified beneath the CA/Browser Forum’s
-reserved policy OID arc of {joint-iso-itu-t(2) international-organizations(23) ca-browser-
-forum(140) certificate-policies(1)} (2.23.140.1). The Certificate MAY also contain additional
-policy identifier(s) defined by OATI. See Section 7.1.2.
+A Certificate issued to a Subscriber MUST contain, within the Certificate’s certificatePolicies extension, one or more policy identifier(s) that are specified beneath the CA/Browser Forum’s reserved policy OID arc of {joint-iso-itu-t(2) international-organizations(23) ca-browser-forum(140) certificate-policies(1)} (2.23.140.1). The Certificate MAY also contain additional policy identifier(s) defined by OATI.
+
+See Section 7.1.2.
 
 ### 7.1.7 Usage of Policy Constraints Extension
 
@@ -3016,7 +3020,7 @@ All OATI webCARES CRLs are X.509 v 2 issued in compliance with RFC 5280.
 
 - OATI ensures the use of its certificate and associated private key to a maximum of six years for CRL signing.
 
-- thisUpdate: The issue date of the CRL.
+- thisUpdate: The issue date of the CRL. This is backdated by 10 minutes to allow for clock skew across different systems and network propagation delays.
 
 - nextUpdate: The date which the next CRL will be issued. OATI Issuer CRLs are three months and Subscribers CRLs are 12 hours.
 
@@ -3043,6 +3047,7 @@ CRL Extensions:
 	- authorityCertSerialNumer: No present.
 
 - CRL Number: Present. Not marked as critical. Consecutively increasing identification number for each CRL.
+  - The CRLNumber extension contains an INTEGER value greater than or equal to zero (0) and less than 2^159. The CRLNumber value forms a strictly increasing sequence for CRLs issued by the applicable CA. Each newly issued CRL has a CRLNumber greater than the CRLNumber of the previously issued CRL. 
 
 - issuingDistributionPoint (OID 2.5.29.28): Not Present. OATI CRLs contain entries for all revoked unexpired certificates, so this is not necessary.
 
@@ -3099,19 +3104,11 @@ Not Applicable.
 
 # 8. Compliance Audit and Other Assessments
 
-The practices in this CPS are designed to meet or exceed the requirements of generally
-accepted industry standards, including the latest versions of NAESB WEQ-012, and the WebTrust
-Program for Certification Authorities (WebTrust for CAs). This CPS also conforms to the current
-version of the CA/B Forum BRs published at https://www.cabforum.org. In the event of any
-inconsistency between this document and those Requirements, those Requirements take
-precedence over this document.
+The practices in this CPS are designed to meet or exceed the requirements of generally accepted industry standards, including the latest versions of NAESB WEQ-012 and the WebTrust Program for Certification Authorities (WebTrust for CAs). This CPS also conforms to the current version of the CA/B Forum BRs published at https://www.cabforum.org. In the event of any inconsistency between this document and those Requirements, those Requirements take precedence over this document.
 
 ## 8.1 Frequency and Circumstances of Assessment
 
-OATI receives annual audits by an independent external auditor to assess OATI's compliance
-with this CPS, CA/B Forum BRs, WebTrust for CAs, and NAESB WEQ-012 criteria. The audits
-cover OATI’s systems, processes and procedures regarding the OATI webCARES Digital
-Certificate PKI operations, and its compliance with applicable guidelines and standards.
+OATI receives annual audits by an independent external auditor to assess OATI's compliance with this CPS, CA/B Forum TLS BRs, WebTrust for CAs, WebTrust for CAs - TLS Baseline, WebTrust for CAs – Network Security, and NAESB WEQ-012 criteria. The audits cover OATI’s systems, processes and procedures regarding the OATI webCARES Digital Certificate PKI operations, and its compliance with applicable guidelines and standards.
 
 If OATI does not have a currently valid Audit Report indicating compliance with one of the audit
 schemes listed in Section 8.4, then, before issuing Publicly-Trusted Certificates, OATI shall
@@ -3167,22 +3164,38 @@ commencing immediately after the previous self-audit sample was taken.
 
 ### 8.5 Actions Taken as a Result of Deficiency
 
-If any deficiency is deemed to exist that causes OATI be non-compliant with applicable law,
-this CPS, or any standard listed in Section 8.4, an appropriate mitigation plan shall be developed
-and submitted to OATI management and then subsequently implemented. Disclosure of the
-deficiency shall be made to the external Qualified Auditor described in Section 8.2 during the
-annual examination timeframe.
+If any deficiency is deemed to exist that causes OATI to be non-compliant with applicable law, this CPS, or any standard listed in Section 8.4, an appropriate mitigation plan shall be developed and submitted to OATI management and then subsequently implemented.  Disclosure of the deficiency shall be made to the external Qualified Auditor described in Section 8.2 during the annual examination timeframe.
 
 ### 8.6 Communications of Results
 
-Results of the external audits noted in Section 8 are publicly available in the OATI webCARES
-Repository (www.oaticerts.com/repository). The audit reports may also be made available to
-applicable root browser programs and others as appropriate.
+Results of the external audits noted in Section 8 are publicly available in the OATI webCARES Repository (www.oaticerts.com/repository).  The audit reports may also be made available to applicable root browser programs and others as needed.
+
+OATI will make authoritative English language versions of the audit reports publicly available within three months after the end of the audit-period.  In the event of a delay greater than three months, OATI shall provide an explanatory letter signed by the Qualified Auditor. 
+
+The Audit Report will contain at least the following clearly-labelled information:
+1.	name of the organization being audited;
+2.	name and address of the organization performing the audit;
+3.	the SHA-256 fingerprint of all Roots and Subordinate CA Certificates, including Cross-Certified Subordinate CA Certificates, that were in-scope of the audit;
+4.	audit criteria, with version number(s), that were used to audit each of the certificates (and associated keys);
+5.	a list of the OATI policy documents, with version numbers, referenced during the audit;
+6.	whether the audit assessed a period of time or a point in time;
+7.	the start date and end date of the Audit Period, for those that cover a period of time;
+8.	the point in time date, for those that are for a point in time; and
+9.	the date the report was issued, which will necessarily be after the end date or point in time date.
+
+The Audit Report will be available as a PDF, and will be text searchable for all information required. Each SHA-256 fingerprint within the Audit Report will be uppercase letters and will not contain colons, spaces, or line feeds.
 
 ### 8.7 Self-Audits
 
-OATI shall monitor adherence to its CPS and control service quality by performing self-audits
-on at least a quarterly basis against a randomly selected sample of certificates.
+OATI does not use Delegated Third Parties, as defined by the CA/Browser Forum Baseline Requirements, to perform activities within the Certificate Management Process that are outside the scope of OATI’s applicable CA audits.
+
+OATI retains responsibility for the Certificate Management Process and the activities performed by OATI personnel, its Registration Authority functions, and authorized SO/ERA/LRA in accordance with this CPS. Such activities are subject to OATI’s applicable audit and oversight controls.
+
+OATI shall continue to monitor adherence to its CPS and control service quality by performing self-audits at least quarterly against a randomly selected sample of Certificates. OATI uses a Linting process to verify the technical accuracy of Certificates within the selected sample set independently of previous linting performed on the same Certificates.
+
+If OATI engages a Delegated Third Party as defined by the CA/Browser Forum Baseline Requirements in the future, OATI shall internally audit each such Delegated Third Party’s compliance with the applicable CA/Browser Forum Baseline Requirements at least annually.
+
+OATI does not currently Technically Constrain Subordinate CAs.
 
 # 9. Other Business and Legal Matters
 
@@ -3319,10 +3332,7 @@ No stipulation.
 
 ## 9.7 Disclaimers of Warranties
 
-OATI, OATI webCARES, and the SOs serving as LRAs hereby disclaim any and all warranties or
-obligations of any kind; including but not limited to any warranty of merchantability and/or
-fitness for a particular purpose, as well as any warranty regarding the accuracy of non-verified
-information.
+OATI, OATI webCARES, and the SOs serving as LRAs/ERAs hereby disclaim any and all warranties or obligations of any kind; including but not limited to any warranty of merchantability and/or fitness for a particular purpose, as well as any warranty regarding the accuracy of non-verified information.
 
 Except as otherwise provided in Section 9.6 herein and as provided in the CA/B Forum BRs,
 OATI makes no other warranties of any kind.
@@ -3333,9 +3343,7 @@ OATI specifically excludes liability for special damages, including but not limi
 punitive, or consequential damages arising out of the use, non-use, or inability to use OATI
 webCARES, even if advised of the possibility of such damages.
 
-Except as otherwise provided herein, under no circumstances will OATI or OATI webCARES be
-liable to any party for any damages or for any loss of profits or data arising out of, or relating
-to, the use of OATI webCARES Digital Certificates or Digital Signatures.
+Except as otherwise provided herein, under no circumstances will OATI or OATI webCARES be liable to any party for any damages or for any loss of profits or data arising out of, or relating to, the use of OATI webCARES Digital Certificates or Digital Signatures.   
 
 ## 9.9 Indemnities
 
@@ -3387,7 +3395,7 @@ amendments.
 
 ### 9.12.2 Notification Mechanism and Period
 
-All changes to this CPS will be published appropriately in the OATI webCARES Repository.
+All changes to this CPS will be published in the OATI webCARES Repository within 7 days of approval, complete with an updated version number and historical entry.
 
 ### 9.12.3 Circumstances Under Which OID Must be Changed
 
@@ -3489,9 +3497,7 @@ continued use of OATI webCARES is an affirmation of acceptance of any such amend
 
 ### 9.17.5 Accuracy of Information
 
-OATI and SOs serving as LRAs shall make all reasonable efforts to ensure that the parties
-accessing OATI webCARES Repositories receive accurate information. OATI, OATI webCARES,
-and SOs serving as LRAs do not accept liability beyond the limits of this CPS.
+OATI and SOs serving as LRAs/ERAs shall make all reasonable efforts to ensure that the parties accessing OATI webCARES Repositories receive accurate information. OATI, OATI webCARES, and SOs serving as LRAs/ERAs do not accept liability beyond the limits of this CPS.
 
 ### 9.17.6 Ownership
 
